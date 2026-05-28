@@ -7,7 +7,7 @@ A modern, polished, immersive digital dinosaur encyclopedia. Built with plain HT
 - **Style**: A dark, elegant natural history museum aesthetic (Dark Biophilic Editorial)
 - **Palette**: Deep charcoal-green backgrounds, sage-green accents, and warm sandstone-gold highlights
 - **Typography**: Noto Sans JP / Noto Sans SC / Noto Serif SC, supporting Chinese, English, and Japanese
-- **Images**: 12 high-quality AI-generated paleoart reconstruction images, guided by National Geographic-style scientific accuracy
+- **Images**: 68 high-quality AI-generated paleoart reconstruction images, guided by National Geographic-style scientific accuracy
 - **Hero Video**: An AI-generated 12-second immersive Tyrannosaurus forest atmosphere video (720p, looped playback)
 
 ## Core Features
@@ -40,11 +40,11 @@ You can also open `index.html` directly in any modern browser. A local server is
 - Vanilla JavaScript with no framework and no build step
 - Inline SVG icons only, with no emoji
 
-## Included Dinosaurs (12)
+## Included Dinosaurs (68)
 
-Tyrannosaurus, Spinosaurus, Brachiosaurus, Diplodocus, Stegosaurus, Ankylosaurus, Allosaurus, Velociraptor, Parasaurolophus, Pachycephalosaurus, Plateosaurus, Mosasaurus
+Tyrannosaurus, Spinosaurus, Brachiosaurus, Diplodocus, Stegosaurus, Ankylosaurus, Allosaurus, Velociraptor, Parasaurolophus, Pachycephalosaurus, Plateosaurus, Mosasaurus, Triceratops, Giganotosaurus, Therizinosaurus, Deinonychus, Argentinosaurus, Carnotaurus, Dilophosaurus, Coelophysis, Iguanodon, Yutyrannus, Protoceratops, Microraptor, Herrerasaurus, Megalosaurus, Gallimimus, Edmontosaurus, Archaeopteryx, Compsognathus, Maiasaura, Deinocheirus, Psittacosaurus, Ceratosaurus, Oviraptor, Eoraptor, Apatosaurus, Baryonyx, Sinosauropteryx, Caudipteryx, Hypsilophodon, Leptoceratops, Saurornithoides, Riojasaurus, Liliensternus, Staurikosaurus, Saturnalia, Pisanosaurus, Thecodontosaurus, Guaibasaurus, Panphagia, Chromogisaurus, Nhandumirim, Mamenchisaurus, Yangchuanosaurus, Camptosaurus, Torvosaurus, Monolophosaurus, Massospondylus, Carcharodontosaurus, Suchomimus, Ouranosaurus, Scelidosaurus, Utahraptor, Dreadnoughtus, Borealopelta, Halszkaraptor, Euoplocephalus
 
-Together, they cover the full span of the Triassic, Jurassic, and Cretaceous periods.
+The collection now features even greater diversity with these latest additions: the massive Utahraptor (largest dromaeosaur), the colossal Dreadnoughtus (one of the heaviest dinosaurs), the exceptionally preserved Borealopelta (with skin and color), the bizarre semi-aquatic Halszkaraptor, and the classic heavily armored Euoplocephalus. The wiki now offers an exceptionally comprehensive view of dinosaur evolution across time and continents.
 
 ## Image Sources
 

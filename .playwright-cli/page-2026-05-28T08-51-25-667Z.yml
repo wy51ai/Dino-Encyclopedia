@@ -1,0 +1,1115 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e4] [cursor=pointer]:
+      - generic [ref=e5]:
+        - img "恐龙大百科" [ref=e6]
+        - generic [ref=e7]:
+          - generic [ref=e8]: Dino Encyclopedia
+          - generic [ref=e9]: DINO ENCYCLOPEDIA
+      - generic [ref=e10]:
+        - link "Species" [ref=e11]:
+          - /url: "#explore"
+        - link "Timeline" [ref=e12]:
+          - /url: "#timeline"
+        - link "Highlights" [ref=e13]:
+          - /url: "#highlights"
+      - generic [ref=e14]:
+        - generic [ref=e15]:
+          - generic [ref=e16]: Language
+          - combobox "Language" [ref=e17]:
+            - option "EN" [selected]
+            - option "中文"
+            - option "日本語"
+            - option "PT"
+            - option "한국어"
+          - img
+        - button "Discover Random" [ref=e18]:
+          - img [ref=e19]
+          - generic [ref=e21]: Discover Random
+        - button "Start Exploring" [ref=e22]:
+          - generic [ref=e23]: Start Exploring
+  - banner [ref=e24]:
+    - generic [ref=e28]:
+      - generic [ref=e29]: MESOZOIC · 230 MILLION YEARS
+      - heading "Dino Encyclopedia" [level=1] [ref=e30]
+      - paragraph [ref=e31]: Revealing the lost world of giants through science
+      - generic [ref=e32]:
+        - button "Browse All Species" [ref=e33] [cursor=pointer]:
+          - generic [ref=e34]: Browse All Species
+          - img [ref=e35]
+        - button "View Geological Timeline" [ref=e37] [cursor=pointer]:
+          - generic [ref=e38]: View Geological Timeline
+      - generic [ref=e42]: Scroll to explore
+  - generic [ref=e46]:
+    - generic [ref=e47]:
+      - generic [ref=e48]: "0"
+      - generic [ref=e49]: Iconic Species Featured
+    - generic [ref=e50]:
+      - generic [ref=e51]: "0"
+      - generic [ref=e52]: Geological Eras Covered
+    - generic [ref=e53]:
+      - generic [ref=e54]: "0"
+      - generic [ref=e55]: Million Years of Evolution
+    - generic [ref=e56]:
+      - generic [ref=e57]: "0"
+      - generic [ref=e58]: Million Years Since Extinction
+  - generic [ref=e59]:
+    - generic [ref=e60]:
+      - generic [ref=e61]:
+        - generic [ref=e62]: SPECIES ARCHIVE
+        - heading "Explore Species" [level=2] [ref=e63]
+      - paragraph [ref=e64]: Click any card for the complete dossier. Use filters to quickly find dinosaurs of interest.
+    - generic [ref=e65]:
+      - generic [ref=e66]:
+        - img [ref=e68]
+        - textbox "Search dinosaur names (Chinese or Latin)..." [ref=e70]
+      - generic [ref=e71]:
+        - generic [ref=e72]: Era
+        - button "All" [ref=e73] [cursor=pointer]
+        - button "Triassic" [ref=e74] [cursor=pointer]
+        - button "Jurassic" [ref=e75] [cursor=pointer]
+        - button "Cretaceous" [ref=e76] [cursor=pointer]
+      - generic [ref=e77]:
+        - generic [ref=e78]: Diet
+        - button "All" [ref=e79] [cursor=pointer]
+        - button "Carnivore" [ref=e80] [cursor=pointer]:
+          - generic [ref=e81]: Carnivore
+        - button "Herbivore" [ref=e82] [cursor=pointer]:
+          - generic [ref=e83]: Herbivore
+    - generic [ref=e84]:
+      - generic [ref=e85] [cursor=pointer]:
+        - generic [ref=e86]:
+          - img "霸王龙 - Tyrannosaurus rex" [ref=e87]
+          - generic [ref=e89]: Late Cretaceous
+        - generic [ref=e90]:
+          - generic [ref=e91]:
+            - heading "Tyrannosaurus rex" [level=3] [ref=e93]
+            - generic [ref=e94]:
+              - generic [ref=e95]: Carnivore
+              - generic [ref=e96]: 12-13 m
+            - paragraph [ref=e97]: The most famous apex predator of the Late Cretaceous with a devastating bite force.
+          - generic [ref=e98]:
+            - generic [ref=e99]: View Details
+            - img [ref=e100]
+      - generic [ref=e102] [cursor=pointer]:
+        - generic [ref=e103]:
+          - img "棘龙 - Spinosaurus aegyptiacus" [ref=e104]
+          - generic [ref=e106]: Mid Cretaceous
+        - generic [ref=e107]:
+          - generic [ref=e108]:
+            - heading "Spinosaurus aegyptiacus" [level=3] [ref=e110]
+            - generic [ref=e111]:
+              - generic [ref=e112]: Carnivore
+              - generic [ref=e113]: 14-15 m
+            - paragraph [ref=e114]: The longest known carnivorous dinosaur, with a distinctive sail-like back and semi-aquatic habits.
+          - generic [ref=e115]:
+            - generic [ref=e116]: View Details
+            - img [ref=e117]
+      - generic [ref=e119] [cursor=pointer]:
+        - generic [ref=e120]:
+          - img "腕龙 - Brachiosaurus altithorax" [ref=e121]
+          - generic [ref=e123]: Late Jurassic
+        - generic [ref=e124]:
+          - generic [ref=e125]:
+            - heading "Brachiosaurus altithorax" [level=3] [ref=e127]
+            - generic [ref=e128]:
+              - generic [ref=e129]: Herbivore
+              - generic [ref=e130]: 22-25 m
+            - paragraph [ref=e131]: With extremely long forelimbs, its head could reach 13 meters — one of the tallest land animals of the Jurassic.
+          - generic [ref=e132]:
+            - generic [ref=e133]: View Details
+            - img [ref=e134]
+      - generic [ref=e136] [cursor=pointer]:
+        - generic [ref=e137]:
+          - img "梁龙 - Diplodocus carnegii" [ref=e138]
+          - generic [ref=e140]: Late Jurassic
+        - generic [ref=e141]:
+          - generic [ref=e142]:
+            - heading "Diplodocus carnegii" [level=3] [ref=e144]
+            - generic [ref=e145]:
+              - generic [ref=e146]: Herbivore
+              - generic [ref=e147]: 25-27 m
+            - paragraph [ref=e148]: A giant sauropod famous for its extremely long whip-like tail and graceful, lightweight build.
+          - generic [ref=e149]:
+            - generic [ref=e150]: View Details
+            - img [ref=e151]
+      - generic [ref=e153] [cursor=pointer]:
+        - generic [ref=e154]:
+          - img "剑龙 - Stegosaurus stenops" [ref=e155]
+          - generic [ref=e157]: Late Jurassic
+        - generic [ref=e158]:
+          - generic [ref=e159]:
+            - heading "Stegosaurus stenops" [level=3] [ref=e161]
+            - generic [ref=e162]:
+              - generic [ref=e163]: Herbivore
+              - generic [ref=e164]: 8-9 m
+            - paragraph [ref=e165]: The iconic herbivore famous for the double row of plates along its back and four sharp tail spikes.
+          - generic [ref=e166]:
+            - generic [ref=e167]: View Details
+            - img [ref=e168]
+      - generic [ref=e170] [cursor=pointer]:
+        - generic [ref=e171]:
+          - img "甲龙 - Ankylosaurus magniventris" [ref=e172]
+          - generic [ref=e174]: Late Cretaceous
+        - generic [ref=e175]:
+          - generic [ref=e176]:
+            - heading "Ankylosaurus magniventris" [level=3] [ref=e178]
+            - generic [ref=e179]:
+              - generic [ref=e180]: Herbivore
+              - generic [ref=e181]: 7-8 m
+            - paragraph [ref=e182]: A living tank completely covered in heavy armor with a massive tail club at the end.
+          - generic [ref=e183]:
+            - generic [ref=e184]: View Details
+            - img [ref=e185]
+      - generic [ref=e187] [cursor=pointer]:
+        - generic [ref=e188]:
+          - img "异特龙 - Allosaurus fragilis" [ref=e189]
+          - generic [ref=e191]: Late Jurassic
+        - generic [ref=e192]:
+          - generic [ref=e193]:
+            - heading "Allosaurus fragilis" [level=3] [ref=e195]
+            - generic [ref=e196]:
+              - generic [ref=e197]: Carnivore
+              - generic [ref=e198]: 9-10 m
+            - paragraph [ref=e199]: The most successful apex predator of the Late Jurassic — fast, agile, and deadly.
+          - generic [ref=e200]:
+            - generic [ref=e201]: View Details
+            - img [ref=e202]
+      - generic [ref=e204] [cursor=pointer]:
+        - generic [ref=e205]:
+          - img "迅猛龙 - Velociraptor mongoliensis" [ref=e206]
+          - generic [ref=e208]: Late Cretaceous
+        - generic [ref=e209]:
+          - generic [ref=e210]:
+            - heading "Velociraptor mongoliensis" [level=3] [ref=e212]
+            - generic [ref=e213]:
+              - generic [ref=e214]: Carnivore
+              - generic [ref=e215]: 1.8-2.2 m
+            - paragraph [ref=e216]: A clever, agile, feathered small carnivore — the real swift killer.
+          - generic [ref=e217]:
+            - generic [ref=e218]: View Details
+            - img [ref=e219]
+      - generic [ref=e221] [cursor=pointer]:
+        - generic [ref=e222]:
+          - img "副栉龙 - Parasaurolophus walkeri" [ref=e223]
+          - generic [ref=e225]: Late Cretaceous
+        - generic [ref=e226]:
+          - generic [ref=e227]:
+            - heading "Parasaurolophus walkeri" [level=3] [ref=e229]
+            - generic [ref=e230]:
+              - generic [ref=e231]: Herbivore
+              - generic [ref=e232]: 9.5-10 m
+            - paragraph [ref=e233]: A spectacular duck-billed dinosaur whose elaborate crest was a complex resonating and display structure.
+          - generic [ref=e234]:
+            - generic [ref=e235]: View Details
+            - img [ref=e236]
+      - generic [ref=e238] [cursor=pointer]:
+        - generic [ref=e239]:
+          - img "肿头龙 - Pachycephalosaurus wyomingensis" [ref=e240]
+          - generic [ref=e242]: Late Cretaceous
+        - generic [ref=e243]:
+          - generic [ref=e244]:
+            - heading "Pachycephalosaurus wyomingensis" [level=3] [ref=e246]
+            - generic [ref=e247]:
+              - generic [ref=e248]: Herbivore
+              - generic [ref=e249]: 4.3-4.8 m
+            - paragraph [ref=e250]: A dinosaur with an extraordinarily thick skull dome, possibly used for head-butting in intraspecific combat.
+          - generic [ref=e251]:
+            - generic [ref=e252]: View Details
+            - img [ref=e253]
+      - generic [ref=e255] [cursor=pointer]:
+        - generic [ref=e256]:
+          - img "板龙 - Plateosaurus engelhardti" [ref=e257]
+          - generic [ref=e259]: Late Triassic
+        - generic [ref=e260]:
+          - generic [ref=e261]:
+            - heading "Plateosaurus engelhardti" [level=3] [ref=e263]
+            - generic [ref=e264]:
+              - generic [ref=e265]: Herbivore
+              - generic [ref=e266]: 8-10 m
+            - paragraph [ref=e267]: One of the first giant long-necked dinosaurs and a key transitional form between early dinosaurs and the great Jurassic sauropods.
+          - generic [ref=e268]:
+            - generic [ref=e269]: View Details
+            - img [ref=e270]
+      - generic [ref=e272] [cursor=pointer]:
+        - generic [ref=e273]:
+          - img "沧龙 - Mosasaurus hoffmannii" [ref=e274]
+          - generic [ref=e276]: Late Cretaceous
+        - generic [ref=e277]:
+          - generic [ref=e278]:
+            - heading "Mosasaurus hoffmannii" [level=3] [ref=e280]
+            - generic [ref=e281]:
+              - generic [ref=e282]: Carnivore
+              - generic [ref=e283]: 14-17 m
+            - paragraph [ref=e284]: The ultimate marine predator of the Late Cretaceous — a gigantic, lightning-fast sea lizard.
+          - generic [ref=e285]:
+            - generic [ref=e286]: View Details
+            - img [ref=e287]
+      - generic [ref=e289] [cursor=pointer]:
+        - generic [ref=e290]:
+          - img "三角龙 - Triceratops horridus" [ref=e291]
+          - generic [ref=e293]: Late Cretaceous
+        - generic [ref=e294]:
+          - generic [ref=e295]:
+            - heading "Triceratops horridus" [level=3] [ref=e297]
+            - generic [ref=e298]:
+              - generic [ref=e299]: Herbivore
+              - generic [ref=e300]: 8-9 m
+            - paragraph [ref=e301]: The most iconic horned dinosaur with three facial horns and a massive bony frill — the dominant Late Cretaceous herbivore.
+          - generic [ref=e302]:
+            - generic [ref=e303]: View Details
+            - img [ref=e304]
+      - generic [ref=e306] [cursor=pointer]:
+        - generic [ref=e307]:
+          - img "巨兽龙 - Giganotosaurus carolinii" [ref=e308]
+          - generic [ref=e310]: Mid Cretaceous
+        - generic [ref=e311]:
+          - generic [ref=e312]:
+            - heading "Giganotosaurus carolinii" [level=3] [ref=e314]
+            - generic [ref=e315]:
+              - generic [ref=e316]: Carnivore
+              - generic [ref=e317]: 12-13.5 m
+            - paragraph [ref=e318]: The largest carnivorous dinosaur found in South America. Possibly longer than T. rex and a dominant apex predator of the mid Cretaceous.
+          - generic [ref=e319]:
+            - generic [ref=e320]: View Details
+            - img [ref=e321]
+      - generic [ref=e323] [cursor=pointer]:
+        - generic [ref=e324]:
+          - img "镰刀龙 - Therizinosaurus cheloniformis" [ref=e325]
+          - generic [ref=e327]: Late Cretaceous
+        - generic [ref=e328]:
+          - generic [ref=e329]:
+            - heading "Therizinosaurus cheloniformis" [level=3] [ref=e331]
+            - generic [ref=e332]:
+              - generic [ref=e333]: Herbivore
+              - generic [ref=e334]: 9-10 m
+            - paragraph [ref=e335]: The dinosaur with the longest known claws. A giant herbivorous theropod — bizarre in appearance yet feeding on plants.
+          - generic [ref=e336]:
+            - generic [ref=e337]: View Details
+            - img [ref=e338]
+      - generic [ref=e340] [cursor=pointer]:
+        - generic [ref=e341]:
+          - img "恐爪龙 - Deinonychus antirrhopus" [ref=e342]
+          - generic [ref=e344]: Early Cretaceous
+        - generic [ref=e345]:
+          - generic [ref=e346]:
+            - heading "Deinonychus antirrhopus" [level=3] [ref=e348]
+            - generic [ref=e349]:
+              - generic [ref=e350]: Carnivore
+              - generic [ref=e351]: 3-3.4 m
+            - paragraph [ref=e352]: The key species that revolutionized our understanding of dinosaurs — a clever, agile, feathered hunter and the real-life model for the “Velociraptor” of popular culture.
+          - generic [ref=e353]:
+            - generic [ref=e354]: View Details
+            - img [ref=e355]
+      - generic [ref=e357] [cursor=pointer]:
+        - generic [ref=e358]:
+          - img "阿根廷龙 - Argentinosaurus huinculensis" [ref=e359]
+          - generic [ref=e361]: Mid Cretaceous
+        - generic [ref=e362]:
+          - generic [ref=e363]:
+            - heading "Argentinosaurus huinculensis" [level=3] [ref=e365]
+            - generic [ref=e366]:
+              - generic [ref=e367]: Herbivore
+              - generic [ref=e368]: 35-40 m
+            - paragraph [ref=e369]: One of the largest land animals ever known. A colossal titanosaur sauropod that may have weighed nearly 100 tons.
+          - generic [ref=e370]:
+            - generic [ref=e371]: View Details
+            - img [ref=e372]
+      - generic [ref=e374] [cursor=pointer]:
+        - generic [ref=e375]:
+          - img "牛角龙 - Carnotaurus sastrei" [ref=e376]
+          - generic [ref=e378]: Late Cretaceous
+        - generic [ref=e379]:
+          - generic [ref=e380]:
+            - heading "Carnotaurus sastrei" [level=3] [ref=e382]
+            - generic [ref=e383]:
+              - generic [ref=e384]: Carnivore
+              - generic [ref=e385]: 7.5-8 m
+            - paragraph [ref=e386]: The unique horned predator from South America — a perfect combination of stubby forelimbs and blistering speed.
+          - generic [ref=e387]:
+            - generic [ref=e388]: View Details
+            - img [ref=e389]
+      - generic [ref=e391] [cursor=pointer]:
+        - generic [ref=e392]:
+          - img "双冠龙 - Dilophosaurus wetherilli" [ref=e393]
+          - generic [ref=e395]: Early Jurassic
+        - generic [ref=e396]:
+          - generic [ref=e397]:
+            - heading "Dilophosaurus wetherilli" [level=3] [ref=e399]
+            - generic [ref=e400]:
+              - generic [ref=e401]: Carnivore
+              - generic [ref=e402]: 6-7 m
+            - paragraph [ref=e403]: The most recognizable Early Jurassic predator, famous for its elegant paired cranial crests and lightweight, agile build.
+          - generic [ref=e404]:
+            - generic [ref=e405]: View Details
+            - img [ref=e406]
+      - generic [ref=e408] [cursor=pointer]:
+        - generic [ref=e409]:
+          - img "腔骨龙 - Coelophysis bauri" [ref=e410]
+          - generic [ref=e412]: Late Triassic
+        - generic [ref=e413]:
+          - generic [ref=e414]:
+            - heading "Coelophysis bauri" [level=3] [ref=e416]
+            - generic [ref=e417]:
+              - generic [ref=e418]: Carnivore
+              - generic [ref=e419]: 2.5-3 m
+            - paragraph [ref=e420]: One of the most successful early dinosaurs of the Late Triassic. Small, fast, and known from hundreds of specimens at a single fossil site.
+          - generic [ref=e421]:
+            - generic [ref=e422]: View Details
+            - img [ref=e423]
+      - generic [ref=e425] [cursor=pointer]:
+        - generic [ref=e426]:
+          - img "禽龙 - Iguanodon bernissartensis" [ref=e427]
+          - generic [ref=e429]: Early Cretaceous
+        - generic [ref=e430]:
+          - generic [ref=e431]:
+            - heading "Iguanodon bernissartensis" [level=3] [ref=e433]
+            - generic [ref=e434]:
+              - generic [ref=e435]: Herbivore
+              - generic [ref=e436]: 9-10 m
+            - paragraph [ref=e437]: One of the very first dinosaurs to be scientifically described, famous for its thumb spikes and replaceable teeth, with immense historical and scientific importance.
+          - generic [ref=e438]:
+            - generic [ref=e439]: View Details
+            - img [ref=e440]
+      - generic [ref=e442] [cursor=pointer]:
+        - generic [ref=e443]:
+          - img "华丽羽王龙 - Yutyrannus huali" [ref=e444]
+          - generic [ref=e446]: Early Cretaceous
+        - generic [ref=e447]:
+          - generic [ref=e448]:
+            - heading "Yutyrannus huali" [level=3] [ref=e450]
+            - generic [ref=e451]:
+              - generic [ref=e452]: Carnivore
+              - generic [ref=e453]: 8-9 m
+            - paragraph [ref=e454]: The largest known feathered dinosaur. An early tyrannosauroid proving that even giant theropods once bore feathers.
+          - generic [ref=e455]:
+            - generic [ref=e456]: View Details
+            - img [ref=e457]
+      - generic [ref=e459] [cursor=pointer]:
+        - generic [ref=e460]:
+          - img "原角龙 - Protoceratops andrewsi" [ref=e461]
+          - generic [ref=e463]: Late Cretaceous
+        - generic [ref=e464]:
+          - generic [ref=e465]:
+            - heading "Protoceratops andrewsi" [level=3] [ref=e467]
+            - generic [ref=e468]:
+              - generic [ref=e469]: Herbivore
+              - generic [ref=e470]: 1.8-2.5 m
+            - paragraph [ref=e471]: The small hornless ceratopsian that famously “fought” a Velociraptor in the most iconic dinosaur fossil ever found. Key species for understanding ceratopsian evolution.
+          - generic [ref=e472]:
+            - generic [ref=e473]: View Details
+            - img [ref=e474]
+      - generic [ref=e476] [cursor=pointer]:
+        - generic [ref=e477]:
+          - img "小盗龙 - Microraptor gui" [ref=e478]
+          - generic [ref=e480]: Early Cretaceous
+        - generic [ref=e481]:
+          - generic [ref=e482]:
+            - heading "Microraptor gui" [level=3] [ref=e484]
+            - generic [ref=e485]:
+              - generic [ref=e486]: Carnivore
+              - generic [ref=e487]: 0.8-1 m
+            - paragraph [ref=e488]: The most famous four-winged dinosaur. A tiny feathered theropod capable of gliding between trees — a key species in feather evolution research.
+          - generic [ref=e489]:
+            - generic [ref=e490]: View Details
+            - img [ref=e491]
+      - generic [ref=e493] [cursor=pointer]:
+        - generic [ref=e494]:
+          - img "黑瑞龙 - Herrerasaurus ischigualastensis" [ref=e495]
+          - generic [ref=e497]: Late Triassic
+        - generic [ref=e498]:
+          - generic [ref=e499]:
+            - heading "Herrerasaurus ischigualastensis" [level=3] [ref=e501]
+            - generic [ref=e502]:
+              - generic [ref=e503]: Carnivore
+              - generic [ref=e504]: 4-6 m
+            - paragraph [ref=e505]: One of the earliest known dinosaurs. A medium-sized apex predator of Late Triassic South America with remarkably advanced anatomy.
+          - generic [ref=e506]:
+            - generic [ref=e507]: View Details
+            - img [ref=e508]
+      - generic [ref=e510] [cursor=pointer]:
+        - generic [ref=e511]:
+          - img "斑龙 - Megalosaurus bucklandii" [ref=e512]
+          - generic [ref=e514]: Middle Jurassic
+        - generic [ref=e515]:
+          - generic [ref=e516]:
+            - heading "Megalosaurus bucklandii" [level=3] [ref=e518]
+            - generic [ref=e519]:
+              - generic [ref=e520]: Carnivore
+              - generic [ref=e521]: 7-9 m
+            - paragraph [ref=e522]: The very first dinosaur ever scientifically named. A top predator of Middle Jurassic Europe with immense historical significance.
+          - generic [ref=e523]:
+            - generic [ref=e524]: View Details
+            - img [ref=e525]
+      - generic [ref=e527] [cursor=pointer]:
+        - generic [ref=e528]:
+          - img "似鸡龙 - Gallimimus bullatus" [ref=e529]
+          - generic [ref=e531]: Late Cretaceous
+        - generic [ref=e532]:
+          - generic [ref=e533]:
+            - heading "Gallimimus bullatus" [level=3] [ref=e535]
+            - generic [ref=e536]:
+              - generic [ref=e537]: Omnivore
+              - generic [ref=e538]: 6-8 m
+            - paragraph [ref=e539]: The most famous “ostrich dinosaur”. Slender build and extremely fast runner — an iconic image from the Gobi Desert of Mongolia.
+          - generic [ref=e540]:
+            - generic [ref=e541]: View Details
+            - img [ref=e542]
+      - generic [ref=e544] [cursor=pointer]:
+        - generic [ref=e545]:
+          - img "埃德蒙顿龙 - Edmontosaurus annectens" [ref=e546]
+          - generic [ref=e548]: Late Cretaceous
+        - generic [ref=e549]:
+          - generic [ref=e550]:
+            - heading "Edmontosaurus annectens" [level=3] [ref=e552]
+            - generic [ref=e553]:
+              - generic [ref=e554]: Herbivore
+              - generic [ref=e555]: 9-12 m
+            - paragraph [ref=e556]: One of the best-preserved hadrosaurs. Famous for its “dinosaur mummies” with exceptionally clear skin impressions.
+          - generic [ref=e557]:
+            - generic [ref=e558]: View Details
+            - img [ref=e559]
+      - generic [ref=e561] [cursor=pointer]:
+        - generic [ref=e562]:
+          - img "始祖鸟 - Archaeopteryx lithographica" [ref=e563]
+          - generic [ref=e565]: Late Jurassic
+        - generic [ref=e566]:
+          - generic [ref=e567]:
+            - heading "Archaeopteryx lithographica" [level=3] [ref=e569]
+            - generic [ref=e570]:
+              - generic [ref=e571]: Carnivore
+              - generic [ref=e572]: 0.5-0.6 m
+            - paragraph [ref=e573]: The most famous transitional fossil — the “first bird”. Possesses both reptilian and avian features and is the key evidence for dinosaurs evolving into birds.
+          - generic [ref=e574]:
+            - generic [ref=e575]: View Details
+            - img [ref=e576]
+      - generic [ref=e578] [cursor=pointer]:
+        - generic [ref=e579]:
+          - img "美颌龙 - Compsognathus longipes" [ref=e580]
+          - generic [ref=e582]: Late Jurassic
+        - generic [ref=e583]:
+          - generic [ref=e584]:
+            - heading "Compsognathus longipes" [level=3] [ref=e586]
+            - generic [ref=e587]:
+              - generic [ref=e588]: Carnivore
+              - generic [ref=e589]: 0.6-1 m
+            - paragraph [ref=e590]: One of the most famous tiny dinosaurs. Turkey-sized, agile carnivore that was once thought to be the smallest dinosaur.
+          - generic [ref=e591]:
+            - generic [ref=e592]: View Details
+            - img [ref=e593]
+      - generic [ref=e595] [cursor=pointer]:
+        - generic [ref=e596]:
+          - img "慈母龙 - Maiasaura peeblesorum" [ref=e597]
+          - generic [ref=e599]: Late Cretaceous
+        - generic [ref=e600]:
+          - generic [ref=e601]:
+            - heading "Maiasaura peeblesorum" [level=3] [ref=e603]
+            - generic [ref=e604]:
+              - generic [ref=e605]: Herbivore
+              - generic [ref=e606]: 7-9 m
+            - paragraph [ref=e607]: The “good mother lizard”. Famous for the discovery of numerous nests, eggs, and juveniles — the first dinosaur proven to have parental care behavior.
+          - generic [ref=e608]:
+            - generic [ref=e609]: View Details
+            - img [ref=e610]
+      - generic [ref=e612] [cursor=pointer]:
+        - generic [ref=e613]:
+          - img "恐手龙 - Deinocheirus mirificus" [ref=e614]
+          - generic [ref=e616]: Late Cretaceous
+        - generic [ref=e617]:
+          - generic [ref=e618]:
+            - heading "Deinocheirus mirificus" [level=3] [ref=e620]
+            - generic [ref=e621]:
+              - generic [ref=e622]: Omnivore
+              - generic [ref=e623]: 11-12 m
+            - paragraph [ref=e624]: The dinosaur with the longest known arms. A gigantic yet bizarre creature whose mystery was only recently solved — the “Mongolian monster”.
+          - generic [ref=e625]:
+            - generic [ref=e626]: View Details
+            - img [ref=e627]
+      - generic [ref=e629] [cursor=pointer]:
+        - generic [ref=e630]:
+          - img "鹦鹉嘴龙 - Psittacosaurus mongoliensis" [ref=e631]
+          - generic [ref=e633]: Early Cretaceous
+        - generic [ref=e634]:
+          - generic [ref=e635]:
+            - heading "Psittacosaurus mongoliensis" [level=3] [ref=e637]
+            - generic [ref=e638]:
+              - generic [ref=e639]: Herbivore
+              - generic [ref=e640]: 1-2 m
+            - paragraph [ref=e641]: One of the best-known early ceratopsians. Possessed a parrot-like beak and long tail bristles — a key species for understanding ceratopsian origins.
+          - generic [ref=e642]:
+            - generic [ref=e643]: View Details
+            - img [ref=e644]
+      - generic [ref=e646] [cursor=pointer]:
+        - generic [ref=e647]:
+          - img "角鼻龙 - Ceratosaurus nasicornis" [ref=e648]
+          - generic [ref=e650]: Late Jurassic
+        - generic [ref=e651]:
+          - generic [ref=e652]:
+            - heading "Ceratosaurus nasicornis" [level=3] [ref=e654]
+            - generic [ref=e655]:
+              - generic [ref=e656]: Carnivore
+              - generic [ref=e657]: 5.5-7 m
+            - paragraph [ref=e658]: The horn-nosed Jurassic predator with a distinctive nasal horn, lighter build and skilled at hunting near water.
+          - generic [ref=e659]:
+            - generic [ref=e660]: View Details
+            - img [ref=e661]
+      - generic [ref=e663] [cursor=pointer]:
+        - generic [ref=e664]:
+          - img "窃蛋龙 - Oviraptor philoceratops" [ref=e665]
+          - generic [ref=e667]: Late Cretaceous
+        - generic [ref=e668]:
+          - generic [ref=e669]:
+            - heading "Oviraptor philoceratops" [level=3] [ref=e671]
+            - generic [ref=e672]:
+              - generic [ref=e673]: Omnivore
+              - generic [ref=e674]: 1.5-2 m
+            - paragraph [ref=e675]: The famous “egg thief” dinosaur that was actually a caring parent, feeding on eggs and mollusks.
+          - generic [ref=e676]:
+            - generic [ref=e677]: View Details
+            - img [ref=e678]
+      - generic [ref=e680] [cursor=pointer]:
+        - generic [ref=e681]:
+          - img "黎明盗龙 - Eoraptor lunensis" [ref=e682]
+          - generic [ref=e684]: Late Triassic
+        - generic [ref=e685]:
+          - generic [ref=e686]:
+            - heading "Eoraptor lunensis" [level=3] [ref=e688]
+            - generic [ref=e689]:
+              - generic [ref=e690]: Carnivore
+              - generic [ref=e691]: 1-1.3 m
+            - paragraph [ref=e692]: One of the earliest known dinosaurs. A small, agile predator from Late Triassic South America.
+          - generic [ref=e693]:
+            - generic [ref=e694]: View Details
+            - img [ref=e695]
+      - generic [ref=e697] [cursor=pointer]:
+        - generic [ref=e698]:
+          - img "迷惑龙 - Apatosaurus louisae" [ref=e699]
+          - generic [ref=e701]: Late Jurassic
+        - generic [ref=e702]:
+          - generic [ref=e703]:
+            - heading "Apatosaurus louisae" [level=3] [ref=e705]
+            - generic [ref=e706]:
+              - generic [ref=e707]: Herbivore
+              - generic [ref=e708]: 21-23 m
+            - paragraph [ref=e709]: The classic giant sauropod dinosaur. Robust build with an extremely long neck and whip-like tail.
+          - generic [ref=e710]:
+            - generic [ref=e711]: View Details
+            - img [ref=e712]
+      - generic [ref=e714] [cursor=pointer]:
+        - generic [ref=e715]:
+          - img "重爪龙 - Baryonyx walkeri" [ref=e716]
+          - generic [ref=e718]: Early Cretaceous
+        - generic [ref=e719]:
+          - generic [ref=e720]:
+            - heading "Baryonyx walkeri" [level=3] [ref=e722]
+            - generic [ref=e723]:
+              - generic [ref=e724]: Carnivore
+              - generic [ref=e725]: 7-10 m
+            - paragraph [ref=e726]: The crocodile-snouted fish-eating dinosaur with a massive thumb claw. A close relative of Spinosaurus.
+          - generic [ref=e727]:
+            - generic [ref=e728]: View Details
+            - img [ref=e729]
+      - generic [ref=e731] [cursor=pointer]:
+        - generic [ref=e732]:
+          - img "中华小盗龙 - Sinosauropteryx prima" [ref=e733]
+          - generic [ref=e735]: Early Cretaceous
+        - generic [ref=e736]:
+          - generic [ref=e737]:
+            - heading "Sinosauropteryx prima" [level=3] [ref=e739]
+            - generic [ref=e740]:
+              - generic [ref=e741]: Carnivore
+              - generic [ref=e742]: 1-1.2 m
+            - paragraph [ref=e743]: The first dinosaur whose feather color was scientifically determined. A tiny feathered theropod with ginger feathers and white stripes.
+          - generic [ref=e744]:
+            - generic [ref=e745]: View Details
+            - img [ref=e746]
+      - generic [ref=e748] [cursor=pointer]:
+        - generic [ref=e749]:
+          - img "尾羽龙 - Caudipteryx zoui" [ref=e750]
+          - generic [ref=e752]: Early Cretaceous
+        - generic [ref=e753]:
+          - generic [ref=e754]:
+            - heading "Caudipteryx zoui" [level=3] [ref=e756]
+            - generic [ref=e757]:
+              - generic [ref=e758]: Herbivore
+              - generic [ref=e759]: 0.8-1 m
+            - paragraph [ref=e760]: A small feathered oviraptorosaur with prominent wing feathers and a tail fan. An important example of early avian-like features.
+          - generic [ref=e761]:
+            - generic [ref=e762]: View Details
+            - img [ref=e763]
+      - generic [ref=e765] [cursor=pointer]:
+        - generic [ref=e766]:
+          - img "高棘龙 - Hypsilophodon foxii" [ref=e767]
+          - generic [ref=e769]: Early Cretaceous
+        - generic [ref=e770]:
+          - generic [ref=e771]:
+            - heading "Hypsilophodon foxii" [level=3] [ref=e773]
+            - generic [ref=e774]:
+              - generic [ref=e775]: Herbivore
+              - generic [ref=e776]: 1.5-1.8 m
+            - paragraph [ref=e777]: The classic small bipedal herbivorous dinosaur. Light and agile, feeding on low-growing plants.
+          - generic [ref=e778]:
+            - generic [ref=e779]: View Details
+            - img [ref=e780]
+      - generic [ref=e782] [cursor=pointer]:
+        - generic [ref=e783]:
+          - img "纤细小角龙 - Leptoceratops gracilis" [ref=e784]
+          - generic [ref=e786]: Late Cretaceous
+        - generic [ref=e787]:
+          - generic [ref=e788]:
+            - heading "Leptoceratops gracilis" [level=3] [ref=e790]
+            - generic [ref=e791]:
+              - generic [ref=e792]: Herbivore
+              - generic [ref=e793]: 1.5-2 m
+            - paragraph [ref=e794]: A small hornless ceratopsian intermediate between Psittacosaurus and Triceratops, retaining many primitive features.
+          - generic [ref=e795]:
+            - generic [ref=e796]: View Details
+            - img [ref=e797]
+      - generic [ref=e799] [cursor=pointer]:
+        - generic [ref=e800]:
+          - img "蒙古似鸟龙 - Saurornithoides mongoliensis" [ref=e801]
+          - generic [ref=e803]: Late Cretaceous
+        - generic [ref=e804]:
+          - generic [ref=e805]:
+            - heading "Saurornithoides mongoliensis" [level=3] [ref=e807]
+            - generic [ref=e808]:
+              - generic [ref=e809]: Carnivore
+              - generic [ref=e810]: 2-3 m
+            - paragraph [ref=e811]: A small agile troodontid with large eyes and a well-developed brain, considered one of the “smartest” small predators.
+          - generic [ref=e812]:
+            - generic [ref=e813]: View Details
+            - img [ref=e814]
+      - generic [ref=e816] [cursor=pointer]:
+        - generic [ref=e817]:
+          - img "里奥哈龙 - Riojasaurus incertus" [ref=e818]
+          - generic [ref=e820]: Late Triassic
+        - generic [ref=e821]:
+          - generic [ref=e822]:
+            - heading "Riojasaurus incertus" [level=3] [ref=e824]
+            - generic [ref=e825]:
+              - generic [ref=e826]: Herbivore
+              - generic [ref=e827]: 8-10 m
+            - paragraph [ref=e828]: A large Triassic sauropodomorph ancestor from South America. Robust build and one of the earliest known large herbivorous dinosaurs.
+          - generic [ref=e829]:
+            - generic [ref=e830]: View Details
+            - img [ref=e831]
+      - generic [ref=e833] [cursor=pointer]:
+        - generic [ref=e834]:
+          - img "利连斯特龙 - Liliensternus liliensterni" [ref=e835]
+          - generic [ref=e837]: Late Triassic
+        - generic [ref=e838]:
+          - generic [ref=e839]:
+            - heading "Liliensternus liliensterni" [level=3] [ref=e841]
+            - generic [ref=e842]:
+              - generic [ref=e843]: Carnivore
+              - generic [ref=e844]: 5-5.5 m
+            - paragraph [ref=e845]: A medium-sized predator from Late Triassic Europe. Size intermediate between small and large theropods, an important transitional form.
+          - generic [ref=e846]:
+            - generic [ref=e847]: View Details
+            - img [ref=e848]
+      - generic [ref=e850] [cursor=pointer]:
+        - generic [ref=e851]:
+          - img "星宿龙 - Staurikosaurus pricei" [ref=e852]
+          - generic [ref=e854]: Late Triassic
+        - generic [ref=e855]:
+          - generic [ref=e856]:
+            - heading "Staurikosaurus pricei" [level=3] [ref=e858]
+            - generic [ref=e859]:
+              - generic [ref=e860]: Carnivore
+              - generic [ref=e861]: 2-2.5 m
+            - paragraph [ref=e862]: One of the earliest known carnivorous dinosaurs. A small agile predator from Late Triassic Brazil.
+          - generic [ref=e863]:
+            - generic [ref=e864]: View Details
+            - img [ref=e865]
+      - generic [ref=e867] [cursor=pointer]:
+        - generic [ref=e868]:
+          - img "土星龙 - Saturnalia tupiniquim" [ref=e869]
+          - generic [ref=e871]: Late Triassic
+        - generic [ref=e872]:
+          - generic [ref=e873]:
+            - heading "Saturnalia tupiniquim" [level=3] [ref=e875]
+            - generic [ref=e876]:
+              - generic [ref=e877]: Herbivore
+              - generic [ref=e878]: 1.5-2 m
+            - paragraph [ref=e879]: An early sauropodomorph ancestor from Late Triassic Brazil. Small bipedal herbivore with a very basal evolutionary position.
+          - generic [ref=e880]:
+            - generic [ref=e881]: View Details
+            - img [ref=e882]
+      - generic [ref=e884] [cursor=pointer]:
+        - generic [ref=e885]:
+          - img "皮萨诺龙 - Pisanosaurus mertii" [ref=e886]
+          - generic [ref=e888]: Late Triassic
+        - generic [ref=e889]:
+          - generic [ref=e890]:
+            - heading "Pisanosaurus mertii" [level=3] [ref=e892]
+            - generic [ref=e893]:
+              - generic [ref=e894]: Herbivore
+              - generic [ref=e895]: 1-1.3 m
+            - paragraph [ref=e896]: Possibly the earliest known ornithischian dinosaur. A small primitive herbivore from Late Triassic Argentina.
+          - generic [ref=e897]:
+            - generic [ref=e898]: View Details
+            - img [ref=e899]
+      - generic [ref=e901] [cursor=pointer]:
+        - generic [ref=e902]:
+          - img "兽齿龙 - Thecodontosaurus antiquus" [ref=e903]
+          - generic [ref=e905]: Late Triassic
+        - generic [ref=e906]:
+          - generic [ref=e907]:
+            - heading "Thecodontosaurus antiquus" [level=3] [ref=e909]
+            - generic [ref=e910]:
+              - generic [ref=e911]: Herbivore
+              - generic [ref=e912]: 2-3 m
+            - paragraph [ref=e913]: One of the earliest dinosaurs ever scientifically named. A small Triassic sauropodomorph from the UK with major historical importance.
+          - generic [ref=e914]:
+            - generic [ref=e915]: View Details
+            - img [ref=e916]
+      - generic [ref=e918] [cursor=pointer]:
+        - generic [ref=e919]:
+          - img "瓜伊巴龙 - Guaibasaurus candelariensis" [ref=e920]
+          - generic [ref=e922]: Late Triassic
+        - generic [ref=e923]:
+          - generic [ref=e924]:
+            - heading "Guaibasaurus candelariensis" [level=3] [ref=e926]
+            - generic [ref=e927]:
+              - generic [ref=e928]: Carnivore
+              - generic [ref=e929]: 2-3 m
+            - paragraph [ref=e930]: An early dinosaur from Late Triassic Brazil. Medium-sized with important transitional features between theropods and more basal forms.
+          - generic [ref=e931]:
+            - generic [ref=e932]: View Details
+            - img [ref=e933]
+      - generic [ref=e935] [cursor=pointer]:
+        - generic [ref=e936]:
+          - img "全食龙 - Panphagia protos" [ref=e937]
+          - generic [ref=e939]: Late Triassic
+        - generic [ref=e940]:
+          - generic [ref=e941]:
+            - heading "Panphagia protos" [level=3] [ref=e943]
+            - generic [ref=e944]:
+              - generic [ref=e945]: Omnivore
+              - generic [ref=e946]: 1.5-2 m
+            - paragraph [ref=e947]: An early sauropodomorph ancestor from Late Triassic Argentina. Name means “all-eater,” showing the transition from carnivory to herbivory.
+          - generic [ref=e948]:
+            - generic [ref=e949]: View Details
+            - img [ref=e950]
+      - generic [ref=e952] [cursor=pointer]:
+        - generic [ref=e953]:
+          - img "彩虹龙 - Chromogisaurus novasi" [ref=e954]
+          - generic [ref=e956]: Late Triassic
+        - generic [ref=e957]:
+          - generic [ref=e958]:
+            - heading "Chromogisaurus novasi" [level=3] [ref=e960]
+            - generic [ref=e961]:
+              - generic [ref=e962]: Herbivore
+              - generic [ref=e963]: 1.5-2 m
+            - paragraph [ref=e964]: An early sauropodomorph ancestor from Late Triassic Argentina. Small in size and an important example of Triassic dinosaur diversity in South America.
+          - generic [ref=e965]:
+            - generic [ref=e966]: View Details
+            - img [ref=e967]
+      - generic [ref=e969] [cursor=pointer]:
+        - generic [ref=e970]:
+          - img "恩汉杜米里姆龙 - Nhandumirim waldsangi" [ref=e971]
+          - generic [ref=e973]: Late Triassic
+        - generic [ref=e974]:
+          - generic [ref=e975]:
+            - heading "Nhandumirim waldsangi" [level=3] [ref=e977]
+            - generic [ref=e978]:
+              - generic [ref=e979]: Carnivore
+              - generic [ref=e980]: 1.5-2 m
+            - paragraph [ref=e981]: A small early theropod from Late Triassic Brazil. Lightweight build and an important representative of Triassic dinosaur diversity in South America.
+          - generic [ref=e982]:
+            - generic [ref=e983]: View Details
+            - img [ref=e984]
+      - generic [ref=e986] [cursor=pointer]:
+        - generic [ref=e987]:
+          - img "马门溪龙 - Mamenchisaurus youngi" [ref=e988]
+          - generic [ref=e990]: Late Jurassic
+        - generic [ref=e991]:
+          - generic [ref=e992]:
+            - heading "Mamenchisaurus youngi" [level=3] [ref=e994]
+            - generic [ref=e995]:
+              - generic [ref=e996]: Herbivore
+              - generic [ref=e997]: 15-18 m
+            - paragraph [ref=e998]: The iconic giant sauropod from Late Jurassic China, famous for having one of the longest necks of any dinosaur.
+          - generic [ref=e999]:
+            - generic [ref=e1000]: View Details
+            - img [ref=e1001]
+      - generic [ref=e1003] [cursor=pointer]:
+        - generic [ref=e1004]:
+          - img "永川龙 - Yangchuanosaurus shangyouensis" [ref=e1005]
+          - generic [ref=e1007]: Late Jurassic
+        - generic [ref=e1008]:
+          - generic [ref=e1009]:
+            - heading "Yangchuanosaurus shangyouensis" [level=3] [ref=e1011]
+            - generic [ref=e1012]:
+              - generic [ref=e1013]: Carnivore
+              - generic [ref=e1014]: 8-10 m
+            - paragraph [ref=e1015]: One of the largest carnivorous dinosaurs of Late Jurassic China and the apex predator of Asian Jurassic ecosystems.
+          - generic [ref=e1016]:
+            - generic [ref=e1017]: View Details
+            - img [ref=e1018]
+      - generic [ref=e1020] [cursor=pointer]:
+        - generic [ref=e1021]:
+          - img "弯龙 - Camptosaurus dispar" [ref=e1022]
+          - generic [ref=e1024]: Late Jurassic
+        - generic [ref=e1025]:
+          - generic [ref=e1026]:
+            - heading "Camptosaurus dispar" [level=3] [ref=e1028]
+            - generic [ref=e1029]:
+              - generic [ref=e1030]: Herbivore
+              - generic [ref=e1031]: 6-8 m
+            - paragraph [ref=e1032]: The classic Late Jurassic ornithopod ancestor from North America. Capable of bipedal or quadrupedal locomotion, medium-sized.
+          - generic [ref=e1033]:
+            - generic [ref=e1034]: View Details
+            - img [ref=e1035]
+      - generic [ref=e1037] [cursor=pointer]:
+        - generic [ref=e1038]:
+          - img "猛龙 - Torvosaurus tanneri" [ref=e1039]
+          - generic [ref=e1041]: Late Jurassic
+        - generic [ref=e1042]:
+          - generic [ref=e1043]:
+            - heading "Torvosaurus tanneri" [level=3] [ref=e1045]
+            - generic [ref=e1046]:
+              - generic [ref=e1047]: Carnivore
+              - generic [ref=e1048]: 9-11 m
+            - paragraph [ref=e1049]: A large carnivorous dinosaur from Late Jurassic North America, alongside Allosaurus as one of the top predators of its time.
+          - generic [ref=e1050]:
+            - generic [ref=e1051]: View Details
+            - img [ref=e1052]
+      - generic [ref=e1054] [cursor=pointer]:
+        - generic [ref=e1055]:
+          - img "单脊龙 - Monolophosaurus jiangi" [ref=e1056]
+          - generic [ref=e1058]: Middle Jurassic
+        - generic [ref=e1059]:
+          - generic [ref=e1060]:
+            - heading "Monolophosaurus jiangi" [level=3] [ref=e1062]
+            - generic [ref=e1063]:
+              - generic [ref=e1064]: Carnivore
+              - generic [ref=e1065]: 5-5.5 m
+            - paragraph [ref=e1066]: The unique crested dragon of Middle Jurassic China. Featured a distinctive single crest on its head and was an important predator in Asia at the time.
+          - generic [ref=e1067]:
+            - generic [ref=e1068]: View Details
+            - img [ref=e1069]
+      - generic [ref=e1071] [cursor=pointer]:
+        - generic [ref=e1072]:
+          - img "马塞龙 - Massospondylus carinatus" [ref=e1073]
+          - generic [ref=e1075]: Late Triassic
+        - generic [ref=e1076]:
+          - generic [ref=e1077]:
+            - heading "Massospondylus carinatus" [level=3] [ref=e1079]
+            - generic [ref=e1080]:
+              - generic [ref=e1081]: Herbivore
+              - generic [ref=e1082]: 4-6 m
+            - paragraph [ref=e1083]: One of the most important early sauropodomorphs from Late Triassic South Africa. Famous for the discovery of numerous eggs and juveniles, proving parental care in early dinosaurs.
+          - generic [ref=e1084]:
+            - generic [ref=e1085]: View Details
+            - img [ref=e1086]
+      - generic [ref=e1088] [cursor=pointer]:
+        - generic [ref=e1089]:
+          - img "鲨齿龙 - Carcharodontosaurus saharicus" [ref=e1090]
+          - generic [ref=e1092]: Late Cretaceous
+        - generic [ref=e1093]:
+          - generic [ref=e1094]:
+            - heading "Carcharodontosaurus saharicus" [level=3] [ref=e1096]
+            - generic [ref=e1097]:
+              - generic [ref=e1098]: Carnivore
+              - generic [ref=e1099]: 12-13 m
+            - paragraph [ref=e1100]: One of the largest carnivorous dinosaurs of Late Cretaceous North Africa. Similar in size to Tyrannosaurus rex and the apex predator of African Cretaceous ecosystems.
+          - generic [ref=e1101]:
+            - generic [ref=e1102]: View Details
+            - img [ref=e1103]
+      - generic [ref=e1105] [cursor=pointer]:
+        - generic [ref=e1106]:
+          - img "似鳄龙 - Suchomimus tenerensis" [ref=e1107]
+          - generic [ref=e1109]: Early Cretaceous
+        - generic [ref=e1110]:
+          - generic [ref=e1111]:
+            - heading "Suchomimus tenerensis" [level=3] [ref=e1113]
+            - generic [ref=e1114]:
+              - generic [ref=e1115]: Carnivore
+              - generic [ref=e1116]: 9-11 m
+            - paragraph [ref=e1117]: A fish-eating spinosaurid from Early Cretaceous West Africa. Featured a low sail on its back and possessed a massive thumb claw.
+          - generic [ref=e1118]:
+            - generic [ref=e1119]: View Details
+            - img [ref=e1120]
+      - generic [ref=e1122] [cursor=pointer]:
+        - generic [ref=e1123]:
+          - img "帆龙 - Ouranosaurus nigeriensis" [ref=e1124]
+          - generic [ref=e1126]: Early Cretaceous
+        - generic [ref=e1127]:
+          - generic [ref=e1128]:
+            - heading "Ouranosaurus nigeriensis" [level=3] [ref=e1130]
+            - generic [ref=e1131]:
+              - generic [ref=e1132]: Herbivore
+              - generic [ref=e1133]: 7-8 m
+            - paragraph [ref=e1134]: A unique sail-backed hadrosauriform from Early Cretaceous West Africa. Featured a tall sail-like structure on its back, possibly used for thermoregulation or display.
+          - generic [ref=e1135]:
+            - generic [ref=e1136]: View Details
+            - img [ref=e1137]
+      - generic [ref=e1139] [cursor=pointer]:
+        - generic [ref=e1140]:
+          - img "盾龙 - Scelidosaurus harrisonii" [ref=e1141]
+          - generic [ref=e1143]: Early Jurassic
+        - generic [ref=e1144]:
+          - generic [ref=e1145]:
+            - heading "Scelidosaurus harrisonii" [level=3] [ref=e1147]
+            - generic [ref=e1148]:
+              - generic [ref=e1149]: Herbivore
+              - generic [ref=e1150]: 3-4 m
+            - paragraph [ref=e1151]: An early armored dinosaur from Early Jurassic England. Covered in bony armor, it is an ancestral form to stegosaurs and ankylosaurs.
+          - generic [ref=e1152]:
+            - generic [ref=e1153]: View Details
+            - img [ref=e1154]
+      - generic [ref=e1156] [cursor=pointer]:
+        - generic [ref=e1157]:
+          - img "犹他盗龙 - Utahraptor ostrommaysorum" [ref=e1158]
+          - generic [ref=e1160]: Early Cretaceous
+        - generic [ref=e1161]:
+          - generic [ref=e1162]:
+            - heading "Utahraptor ostrommaysorum" [level=3] [ref=e1164]
+            - generic [ref=e1165]:
+              - generic [ref=e1166]: Carnivore
+              - generic [ref=e1167]: 5-7 m
+            - paragraph [ref=e1168]: The largest dromaeosaur from Early Cretaceous North America. Much larger than Velociraptor and one of the top predators of its time.
+          - generic [ref=e1169]:
+            - generic [ref=e1170]: View Details
+            - img [ref=e1171]
+      - generic [ref=e1173] [cursor=pointer]:
+        - generic [ref=e1174]:
+          - img "无畏龙 - Dreadnoughtus schrani" [ref=e1175]
+          - generic [ref=e1177]: Late Cretaceous
+        - generic [ref=e1178]:
+          - generic [ref=e1179]:
+            - heading "Dreadnoughtus schrani" [level=3] [ref=e1181]
+            - generic [ref=e1182]:
+              - generic [ref=e1183]: Herbivore
+              - generic [ref=e1184]: 26-30 m
+            - paragraph [ref=e1185]: One of the largest land animals ever known. A giant titanosaur from Late Cretaceous South America.
+          - generic [ref=e1186]:
+            - generic [ref=e1187]: View Details
+            - img [ref=e1188]
+      - generic [ref=e1190] [cursor=pointer]:
+        - generic [ref=e1191]:
+          - img "北方盾龙 - Borealopelta markmitchelli" [ref=e1192]
+          - generic [ref=e1194]: Early Cretaceous
+        - generic [ref=e1195]:
+          - generic [ref=e1196]:
+            - heading "Borealopelta markmitchelli" [level=3] [ref=e1198]
+            - generic [ref=e1199]:
+              - generic [ref=e1200]: Herbivore
+              - generic [ref=e1201]: 5-6 m
+            - paragraph [ref=e1202]: One of the best-preserved armored dinosaurs from Early Cretaceous Canada. Skin, coloration, and stomach contents are all exceptionally preserved.
+          - generic [ref=e1203]:
+            - generic [ref=e1204]: View Details
+            - img [ref=e1205]
+      - generic [ref=e1207] [cursor=pointer]:
+        - generic [ref=e1208]:
+          - img "哈尔兹卡盗龙 - Halszkaraptor escuilliei" [ref=e1209]
+          - generic [ref=e1211]: Late Cretaceous
+        - generic [ref=e1212]:
+          - generic [ref=e1213]:
+            - heading "Halszkaraptor escuilliei" [level=3] [ref=e1215]
+            - generic [ref=e1216]:
+              - generic [ref=e1217]: Carnivore
+              - generic [ref=e1218]: 0.8-1 m
+            - paragraph [ref=e1219]: A unique semi-aquatic dromaeosaur from Late Cretaceous Mongolia. Long neck and arms, possibly capable of swimming or diving.
+          - generic [ref=e1220]:
+            - generic [ref=e1221]: View Details
+            - img [ref=e1222]
+      - generic [ref=e1224] [cursor=pointer]:
+        - generic [ref=e1225]:
+          - img "优脊甲龙 - Euoplocephalus tutus" [ref=e1226]
+          - generic [ref=e1228]: Late Cretaceous
+        - generic [ref=e1229]:
+          - generic [ref=e1230]:
+            - heading "Euoplocephalus tutus" [level=3] [ref=e1232]
+            - generic [ref=e1233]:
+              - generic [ref=e1234]: Herbivore
+              - generic [ref=e1235]: 5-6 m
+            - paragraph [ref=e1236]: One of the most famous armored dinosaurs of Late Cretaceous North America. Featured a massive tail club and complex body armor.
+          - generic [ref=e1237]:
+            - generic [ref=e1238]: View Details
+            - img [ref=e1239]
+  - generic [ref=e1242]:
+    - generic [ref=e1243]:
+      - generic [ref=e1244]: GEOLOGICAL TIMELINE
+      - heading "Mesozoic Timeline" [level=2] [ref=e1245]
+      - paragraph [ref=e1246]: Dinosaurs ruled the Earth for 230 million years across three major eras. Click an era to filter species.
+    - generic [ref=e1247]:
+      - generic [ref=e1248] [cursor=pointer]:
+        - generic [ref=e1249]:
+          - generic [ref=e1250]:
+            - generic [ref=e1251]: 252 — 201 MYA
+            - generic [ref=e1252]: Triassic
+          - generic [ref=e1254]: Early
+        - generic [ref=e1255]: The first dinosaurs appear. Mostly small-bodied, with early long-necked forms like Plateosaurus beginning to evolve.
+        - generic [ref=e1256]:
+          - generic [ref=e1257]: Filter this era
+          - img [ref=e1258]
+      - generic [ref=e1260] [cursor=pointer]:
+        - generic [ref=e1261]:
+          - generic [ref=e1262]:
+            - generic [ref=e1263]: 201 — 145 MYA
+            - generic [ref=e1264]: Jurassic
+          - generic [ref=e1266]: Flourishing
+        - generic [ref=e1267]: The golden age of dinosaurs. Giant sauropods and stegosaurs dominate, while predators like Allosaurus emerge.
+        - generic [ref=e1268]:
+          - generic [ref=e1269]: Filter this era
+          - img [ref=e1270]
+      - generic [ref=e1272] [cursor=pointer]:
+        - generic [ref=e1273]:
+          - generic [ref=e1274]:
+            - generic [ref=e1275]: 145 — 66 MYA
+            - generic [ref=e1276]: Cretaceous
+          - generic [ref=e1278]: Peak
+        - generic [ref=e1279]: Iconic apex species like T. rex, Spinosaurus and Ankylosaurus appear. The asteroid impact 66 million years ago ends their reign.
+        - generic [ref=e1280]:
+          - generic [ref=e1281]: Filter this era
+          - img [ref=e1282]
+  - generic [ref=e1284]:
+    - generic [ref=e1285]:
+      - generic [ref=e1286]:
+        - generic [ref=e1287]: CURATED STORIES
+        - heading "Curated Highlights" [level=2] [ref=e1288]
+      - paragraph [ref=e1289]: Fascinating stories from the age of dinosaurs
+    - generic [ref=e1290]:
+      - generic [ref=e1291] [cursor=pointer]:
+        - generic [ref=e1292]: THE APEX
+        - generic [ref=e1293]: Most Powerful Bite
+        - paragraph [ref=e1294]: Tyrannosaurus rex possessed a bite force exceeding 4 tons — the strongest of any known terrestrial animal, capable of crushing bone.
+        - generic [ref=e1295]:
+          - generic [ref=e1296]: Learn more about
+          - generic [ref=e1297]: T. rex
+          - text: →
+      - generic [ref=e1298] [cursor=pointer]:
+        - generic [ref=e1299]: THE GIANT
+        - generic [ref=e1300]: Longest Predator
+        - paragraph [ref=e1301]: Spinosaurus reached 15 meters, the longest known carnivorous dinosaur, with a unique sail-like back and semi-aquatic lifestyle.
+        - generic [ref=e1302]:
+          - generic [ref=e1303]: Learn more about
+          - generic [ref=e1304]: Spinosaurus
+          - text: →
+      - generic [ref=e1305] [cursor=pointer]:
+        - generic [ref=e1306]: THE TALLEST
+        - generic [ref=e1307]: Tallest Land Animal
+        - paragraph [ref=e1308]: Brachiosaurus had exceptionally long forelimbs, allowing its head to reach 13 meters high — one of the tallest sauropods of the Jurassic.
+        - generic [ref=e1309]:
+          - generic [ref=e1310]: Learn more about
+          - generic [ref=e1311]: Brachiosaurus
+          - text: →
+      - generic [ref=e1312] [cursor=pointer]:
+        - generic [ref=e1313]: THE MARINE
+        - generic [ref=e1314]: Lord of the Seas
+        - paragraph [ref=e1315]: Mosasaurus was not a true dinosaur but a massive marine reptile that ruled the oceans of the Late Cretaceous.
+        - generic [ref=e1316]:
+          - generic [ref=e1317]: Learn more about
+          - generic [ref=e1318]: Mosasaurus
+          - text: →
+  - contentinfo [ref=e1319]:
+    - generic [ref=e1321]:
+      - generic [ref=e1322]:
+        - generic [ref=e1324]: Dino Encyclopedia
+        - paragraph [ref=e1325]: A modern archive of time and life. Dedicated to all the scientists who have advanced paleontology.
+      - generic [ref=e1326]:
+        - generic [ref=e1327]: Images are AI-assisted, informed by scientific reconstructions and the paleoart tradition.
+        - generic [ref=e1328]: Data is based on public academic research and museum resources.
+        - generic [ref=e1329]: © 2025 · For education and appreciation only

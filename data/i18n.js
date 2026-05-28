@@ -3,7 +3,7 @@ window.i18n = {
     // Document & Brand
     brand: "恐龙大百科",
     doc_title: "恐龙大百科 · 探索中生代的巨兽世界",
-    doc_desc: "现代感恐龙百科全书，以精美古生物复原图呈现12种标志性恐龙。跨越三叠纪、侏罗纪、白垩纪，专业而诗意的数字博物馆。",
+    doc_desc: "现代感恐龙百科全书，以精美古生物复原图呈现68种标志性恐龙。跨越三叠纪、侏罗纪、白垩纪，专业而诗意的数字博物馆。",
 
     // Navbar & Actions
     btn_random: "随机发现",
@@ -98,7 +98,7 @@ window.i18n = {
   en: {
     brand: "Dino Encyclopedia",
     doc_title: "Dino Encyclopedia · Exploring the Giants of the Mesozoic",
-    doc_desc: "A modern dinosaur encyclopedia featuring 12 iconic species through exquisite paleoart. Spanning the Triassic, Jurassic and Cretaceous — a professional yet poetic digital museum.",
+    doc_desc: "A modern dinosaur encyclopedia featuring 68 iconic species through exquisite paleoart. Spanning the Triassic, Jurassic and Cretaceous — a professional yet poetic digital museum.",
 
     btn_random: "Discover Random",
     btn_explore: "Start Exploring",
@@ -185,7 +185,7 @@ window.i18n = {
     // Document & Brand
     brand: "恐竜大百科",
     doc_title: "恐竜大百科 · 中生代の巨獣の世界を探る",
-    doc_desc: "現代的な恐竜百科事典。美しい古生物復元図で12種の象徴的な恐竜を紹介。三畳紀、ジュラ紀、白亜紀にわたり、専門的かつ詩的なデジタルミュージアム。",
+    doc_desc: "現代的な恐竜百科事典。美しい古生物復元図で68種の象徴的な恐竜を紹介。三畳紀、ジュラ紀、白亜紀にわたり、専門的かつ詩的なデジタルミュージアム。",
 
     // Navbar & Actions
     btn_random: "ランダムに発見",
@@ -281,7 +281,7 @@ window.i18n = {
     // Document & Brand
     brand: "Enciclopédia dos Dinossauros",
     doc_title: "Enciclopédia dos Dinossauros · Explorando os Gigantes do Mesozóico",
-    doc_desc: "Uma enciclopédia moderna de dinossauros com 12 espécies icônicas através de belas reconstruções paleoartísticas. Abrange o Triássico, Jurássico e Cretáceo — um museu digital profissional e poético.",
+    doc_desc: "Uma enciclopédia moderna de dinossauros com 68 espécies icônicas através de belas reconstruções paleoartísticas. Abrange o Triássico, Jurássico e Cretáceo — um museu digital profissional e poético.",
 
     // Navbar & Actions
     btn_random: "Descobrir Aleatório",
@@ -377,7 +377,7 @@ window.i18n = {
     // Document & Brand
     brand: "공룡 대백과",
     doc_title: "공룡 대백과 · 중생대 거대 생물의 세계를 탐험하다",
-    doc_desc: "아름다운 고생물 복원도를 통해 12종의 상징적인 공룡을 소개하는 현대적인 공룡 백과사전. 트라이아스기, 쥐라기, 백악기를 아우르는 전문적이면서도 시적인 디지털 박물관.",
+    doc_desc: "아름다운 고생물 복원도를 통해 68종의 상징적인 공룡을 소개하는 현대적인 공룡 백과사전. 트라이아스기, 쥐라기, 백악기를 아우르는 전문적이면서도 시적인 디지털 박물관.",
 
     // Navbar & Actions
     btn_random: "무작위 발견",

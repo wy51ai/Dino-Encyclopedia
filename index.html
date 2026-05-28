@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>恐龙大百科 · 探索中生代的巨兽世界</title>
-  <meta name="description" content="现代感恐龙百科全书，以精美古生物复原图呈现12种标志性恐龙。跨越三叠纪、侏罗纪、白垩纪，专业而诗意的数字博物馆。">
+  <title>Dino Encyclopedia · Exploring the Giants of the Mesozoic</title>
+  <meta name="description" content="A modern dinosaur encyclopedia featuring 68 iconic species through exquisite paleoart. Spanning the Triassic, Jurassic and Cretaceous — a professional yet poetic digital museum.">
   <link rel="icon" href="assets/logo.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -100,11 +100,12 @@
       color: var(--dino-text);
     }
 
-    .lang-btn.active {
-      background-color: #4A6741;
-      color: white;
+    .lang-select {
+      color-scheme: dark;
     }
-    .lang-btn:not(.active):hover {
+
+    .lang-select option {
+      background-color: #0A0C0B;
       color: #EDE8DF;
     }
 
@@ -314,14 +315,14 @@
         <!-- Logo -->
         <div class="flex items-center gap-x-3">
           <img src="assets/logo.png" alt="恐龙大百科" class="w-11 h-11 object-contain" />
-          <div>
+          <div class="hidden sm:block">
             <div class="font-display text-2xl tracking-[-0.03em] font-semibold" data-i18n="brand">恐龙大百科</div>
             <div class="text-[10px] text-[#9A968E] -mt-1 tracking-[1.5px]">DINO ENCYCLOPEDIA</div>
           </div>
         </div>
 
         <!-- Desktop Nav -->
-        <div class="hidden md:flex items-center gap-x-9 text-sm">
+        <div class="hidden lg:flex items-center gap-x-9 text-sm">
           <a href="#explore" class="nav-link text-sm font-medium text-[#EDE8DF] hover:text-white" data-i18n="nav_species">探索物种</a>
           <a href="#timeline" class="nav-link text-sm font-medium text-[#EDE8DF] hover:text-white" data-i18n="nav_timeline">地质年表</a>
           <a href="#highlights" class="nav-link text-sm font-medium text-[#EDE8DF] hover:text-white" data-i18n="nav_highlights">特别推荐</a>
@@ -330,28 +331,30 @@
         <!-- Actions -->
         <div class="flex items-center gap-x-3">
           <!-- Language Switcher -->
-          <div class="flex items-center rounded-full border border-[#2A302B] p-0.5 bg-[#0A0C0B]">
-            <button onclick="setLanguage('zh')" id="lang-zh"
-                    class="lang-btn active px-1.5 py-1 text-[10px] font-medium rounded-full transition-all">中文</button>
-            <button onclick="setLanguage('en')" id="lang-en"
-                    class="lang-btn px-1.5 py-1 text-[10px] font-medium rounded-full transition-all text-[#9A968E]">EN</button>
-            <button onclick="setLanguage('ja')" id="lang-ja"
-                    class="lang-btn px-1.5 py-1 text-[10px] font-medium rounded-full transition-all text-[#9A968E]">日</button>
-            <button onclick="setLanguage('pt')" id="lang-pt"
-                    class="lang-btn px-1.5 py-1 text-[10px] font-medium rounded-full transition-all text-[#9A968E]">PT</button>
-            <button onclick="setLanguage('ko')" id="lang-ko"
-                    class="lang-btn px-1.5 py-1 text-[10px] font-medium rounded-full transition-all text-[#9A968E]">韩</button>
+          <div class="relative">
+            <label for="language-select" class="sr-only">Language</label>
+            <select id="language-select" onchange="setLanguage(this.value)"
+                    class="lang-select w-[5.25rem] appearance-none h-10 rounded-full border border-[#2A302B] bg-[#0A0C0B] pl-4 pr-9 text-xs font-medium text-[#EDE8DF] outline-none transition-colors hover:border-[#4A6741] focus:border-[#4A6741]">
+              <option value="en" selected>EN</option>
+              <option value="zh">中文</option>
+              <option value="ja">日本語</option>
+              <option value="pt">PT</option>
+              <option value="ko">한국어</option>
+            </select>
+            <svg xmlns="http://www.w3.org/2000/svg" class="pointer-events-none absolute right-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-[#9A968E]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.25" d="M19 9l-7 7-7-7" />
+            </svg>
           </div>
 
           <button onclick="showRandomDinosaur()" 
-                  class="hidden sm:flex items-center gap-x-2 px-5 h-10 rounded-full border border-[#2A302B] hover:border-[#4A6741] text-sm font-medium transition-colors">
+                  class="hidden xl:flex items-center gap-x-2 px-5 h-10 rounded-full border border-[#2A302B] hover:border-[#4A6741] text-sm font-medium transition-colors">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7-7 7M5 12h14" />
             </svg>
             <span data-i18n="btn_random">随机发现</span>
           </button>
           <button onclick="document.getElementById('explore').scrollIntoView({ behavior: 'smooth' })" 
-                  class="px-6 h-10 rounded-full bg-[#4A6741] hover:bg-[#5A7A51] text-white text-sm font-medium transition-colors flex items-center">
+                  class="hidden sm:flex px-6 h-10 rounded-full bg-[#4A6741] hover:bg-[#5A7A51] text-white text-sm font-medium transition-colors items-center">
             <span data-i18n="btn_explore">开始探索</span>
           </button>
         </div>
@@ -381,7 +384,7 @@
     <div class="hero-content relative max-w-5xl mx-auto px-6 text-center z-10">
       <div class="hero-reveal inline-block mb-4 px-4 py-1 rounded-full border border-white/20 text-xs tracking-[3px] text-white/70" data-i18n="hero_tag">中生代 · 2.3 亿年</div>
 
-      <h1 class="hero-reveal font-display text-[92px] md:text-[120px] leading-[0.86] tracking-[-6.5px] font-semibold mb-10" data-i18n="brand">
+      <h1 class="hero-reveal font-display mx-auto max-w-[12ch] lg:max-w-none text-[64px] sm:text-[82px] lg:text-[120px] leading-[0.9] lg:leading-[0.86] tracking-[-2.8px] sm:tracking-[-4px] lg:tracking-[-6.5px] font-semibold mb-10" data-i18n="brand">
         恐龙大百科
       </h1>
       <p class="hero-reveal max-w-lg mx-auto text-2xl md:text-3xl tracking-[-0.6px] text-[#EDE8DF] mb-10" data-i18n="hero_subtitle">
@@ -417,7 +420,7 @@
     <div class="max-w-7xl mx-auto px-6 lg:px-8 py-8">
       <div id="stats-grid" class="grid grid-cols-2 md:grid-cols-4 gap-y-8 text-center">
         <div>
-          <div class="stat-number stat-count text-5xl font-semibold tracking-tighter text-white" data-target="12">0</div>
+          <div class="stat-number stat-count text-5xl font-semibold tracking-tighter text-white" data-target="68">0</div>
           <div class="text-[#9A968E] text-sm mt-1 tracking-wider" data-i18n="stat_species">精选标志性物种</div>
         </div>
         <div>
@@ -505,7 +508,7 @@
         <p class="mt-4 text-[#9A968E] text-[15px]" data-i18n="timeline_intro">恐龙统治地球的2亿3千万年，分为三个主要时代。点击时代可筛选对应物种。</p>
       </div>
 
-      <div class="stagger grid md:grid-cols-3 gap-5">
+      <div class="stagger grid lg:grid-cols-3 gap-5">
         <!-- Triassic -->
         <div onclick="filterByEraFromTimeline('triassic')" class="reveal-fade timeline-item group cursor-pointer bg-[#1A1F1C] border border-[#2A302B] rounded-3xl p-8 hover:border-[#4A6741]">
           <div class="flex justify-between items-start">
@@ -746,14 +749,18 @@
     let currentEraFilter = 'all';
     let currentDietFilter = 'all';
     let currentSearchTerm = '';
-    let currentLang = 'zh';
+    let currentLang = 'en';
 
     // UI copy loaded from external files.
     const i18n = window.i18n || {};
 
 
     function t(key) {
-      return (i18n[currentLang] && i18n[currentLang][key]) || i18n.zh[key] || key;
+      return (i18n[currentLang] && i18n[currentLang][key]) || (i18n.en && i18n.en[key]) || (i18n.zh && i18n.zh[key]) || key;
+    }
+
+    function getHtmlLang(lang) {
+      return lang === 'zh' ? 'zh-CN' : (lang === 'ja' ? 'ja' : (lang === 'pt' ? 'pt' : (lang === 'ko' ? 'ko' : 'en')));
     }
 
     // Localize measurement units (numbers are language-independent, only the unit word changes)
@@ -1183,17 +1190,9 @@
       const searchInput = document.getElementById('search-input');
       if (searchInput) searchInput.placeholder = t('search_placeholder');
 
-      // Update language button active states
-      document.getElementById('lang-zh').classList.toggle('active', currentLang === 'zh');
-      document.getElementById('lang-zh').classList.toggle('text-[#9A968E]', currentLang !== 'zh');
-      document.getElementById('lang-en').classList.toggle('active', currentLang === 'en');
-      document.getElementById('lang-en').classList.toggle('text-[#9A968E]', currentLang !== 'en');
-      document.getElementById('lang-ja').classList.toggle('active', currentLang === 'ja');
-      document.getElementById('lang-ja').classList.toggle('text-[#9A968E]', currentLang !== 'ja');
-      document.getElementById('lang-pt').classList.toggle('active', currentLang === 'pt');
-      document.getElementById('lang-pt').classList.toggle('text-[#9A968E]', currentLang !== 'pt');
-      document.getElementById('lang-ko').classList.toggle('active', currentLang === 'ko');
-      document.getElementById('lang-ko').classList.toggle('text-[#9A968E]', currentLang !== 'ko');
+      // Keep the dropdown synced when language changes are triggered from code.
+      const languageSelect = document.getElementById('language-select');
+      if (languageSelect) languageSelect.value = currentLang;
     }
 
     // Main language switcher
@@ -1203,7 +1202,7 @@
       localStorage.setItem('dinoLang', lang);
 
       // Update document language
-      document.documentElement.lang = lang === 'zh' ? 'zh-CN' : (lang === 'ja' ? 'ja' : (lang === 'pt' ? 'pt' : (lang === 'ko' ? 'ko' : 'en')));
+      document.documentElement.lang = getHtmlLang(lang);
 
       // Update static text
       updateStaticText();
@@ -1250,7 +1249,7 @@
       if (savedLang === 'en' || savedLang === 'zh' || savedLang === 'ja' || savedLang === 'pt' || savedLang === 'ko') {
         currentLang = savedLang;
       }
-      document.documentElement.lang = currentLang === 'zh' ? 'zh-CN' : (currentLang === 'ja' ? 'ja' : (currentLang === 'pt' ? 'pt' : (currentLang === 'ko' ? 'ko' : 'en')));
+      document.documentElement.lang = getHtmlLang(currentLang);
 
       init();
       setupLogoReset();
