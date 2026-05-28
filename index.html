@@ -1,0 +1,1280 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>恐龙大百科 · 探索中生代的巨兽世界</title>
+  <meta name="description" content="现代感恐龙百科全书，以精美古生物复原图呈现12种标志性恐龙。跨越三叠纪、侏罗纪、白垩纪，专业而诗意的数字博物馆。">
+  <link rel="icon" href="assets/logo.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --dino-bg: #0A0C0B;
+      --dino-surface: #121513;
+      --dino-surface-2: #1A1F1C;
+      --dino-accent: #4A6741;
+      --dino-warm: #B38B5E;
+      --dino-gold: #C9A96E;
+      --dino-text: #EDE8DF;
+      --dino-muted: #9A968E;
+      --dino-border: #2A302B;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+      /* Offset so anchored sections don't hide behind the fixed 80px navbar */
+      scroll-padding-top: 5rem;
+    }
+
+    body {
+      font-family: 'Noto Sans JP', 'Noto Sans SC', system-ui, -apple-system, sans-serif;
+    }
+    
+    .font-display {
+      font-family: 'Noto Serif SC', 'Noto Sans SC', serif;
+      font-feature-settings: "ss02", "ss03";
+    }
+
+    .section-title {
+      font-family: 'Noto Serif SC', 'Noto Sans JP', serif;
+      letter-spacing: -0.02em;
+    }
+
+    .dino-card {
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                  box-shadow 0.3s cubic-bezier(0.4, 0.0, 0.2, 1),
+                  border-color 0.2s ease;
+      border: 1px solid var(--dino-border);
+    }
+    
+    .dino-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+      border-color: var(--dino-accent);
+    }
+
+    .dino-card img {
+      transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .dino-card:hover img {
+      transform: scale(1.06);
+    }
+
+    .nav-link {
+      position: relative;
+      transition: color 0.2s ease;
+    }
+    
+    .nav-link:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 1px;
+      bottom: -2px;
+      left: 0;
+      background-color: var(--dino-gold);
+      transition: width 0.2s ease;
+    }
+    
+    .nav-link:hover:after {
+      width: 100%;
+    }
+
+    .filter-pill {
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 1px solid var(--dino-border);
+    }
+    
+    .filter-pill.active {
+      background-color: var(--dino-accent);
+      border-color: var(--dino-accent);
+      color: white;
+    }
+
+    .filter-pill:hover:not(.active) {
+      border-color: var(--dino-accent);
+      color: var(--dino-text);
+    }
+
+    .lang-btn.active {
+      background-color: #4A6741;
+      color: white;
+    }
+    .lang-btn:not(.active):hover {
+      color: #EDE8DF;
+    }
+
+    /* Backdrop fades in/out; panel slides + scales for a smooth open/close */
+    #modal {
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    #modal.is-open { opacity: 1; }
+
+    #modal.is-open .modal {
+      animation: modalEnter 0.42s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    #modal.is-closing .modal {
+      animation: modalExit 0.26s cubic-bezier(0.4, 0, 1, 1) forwards;
+    }
+
+    @keyframes modalEnter {
+      from {
+        opacity: 0;
+        transform: translateY(28px) scale(0.96);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @keyframes modalExit {
+      from {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+      to {
+        opacity: 0;
+        transform: translateY(16px) scale(0.985);
+      }
+    }
+
+    .fact-pill {
+      background-color: var(--dino-surface-2);
+      border: 1px solid var(--dino-border);
+    }
+
+    .timeline-item {
+      transition: all 0.2s ease;
+    }
+    
+    .timeline-item:hover {
+      transform: translateX(4px);
+    }
+
+    .stat-number {
+      font-family: 'Noto Serif SC', 'Noto Sans JP', serif;
+      font-feature-settings: "tnum";
+    }
+
+    .dino-grid {
+      scrollbar-width: thin;
+      scrollbar-color: var(--dino-border) transparent;
+    }
+
+    .museum-glass {
+      background: rgba(18, 21, 19, 0.85);
+      backdrop-filter: blur(20px);
+    }
+
+    .subtle-grain {
+      background-image: 
+        linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px);
+      background-size: 4px 4px;
+    }
+
+    .hero-gradient {
+      background: linear-gradient(
+        to bottom,
+        rgba(10,12,11,0.35) 0%,
+        rgba(10,12,11,0.75) 55%,
+        rgba(10,12,11,0.92) 85%
+      );
+    }
+
+    /* Hero entrance — staggered fade-up, easeOut for elements entering */
+    .hero-reveal {
+      opacity: 0;
+      animation: heroReveal 0.95s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    .hero-content > .hero-reveal:nth-child(1) { animation-delay: 1.10s; }
+    .hero-content > .hero-reveal:nth-child(2) { animation-delay: 1.22s; }
+    .hero-content > .hero-reveal:nth-child(3) { animation-delay: 1.40s; }
+    .hero-content > .hero-reveal:nth-child(4) { animation-delay: 1.56s; }
+    .hero-content > .hero-reveal:nth-child(5) { animation-delay: 1.74s; }
+
+    @keyframes heroReveal {
+      from {
+        opacity: 0;
+        transform: translateY(26px);
+        filter: blur(6px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+      }
+    }
+
+    /* Gentle downward drift on the scroll hint to invite scrolling */
+    .scroll-cue {
+      animation: scrollCue 2.0s ease-in-out 2.3s infinite;
+    }
+
+    @keyframes scrollCue {
+      0%, 100% { transform: translateY(0); opacity: 0.5; }
+      50% { transform: translateY(5px); opacity: 1; }
+    }
+
+    /* Scroll-triggered reveals for the sections below the fold */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Opacity-only variant — used where the element keeps its own hover transform */
+    .reveal-fade {
+      opacity: 0;
+      transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reveal-fade.is-visible {
+      opacity: 1;
+    }
+
+    /* Staggered timing for card groups (scoped to the reveal classes so the
+       delay never lingers on the cards' own hover transitions) */
+    .stagger > .reveal:nth-child(1),
+    .stagger > .reveal-fade:nth-child(1) { transition-delay: 0.00s; }
+    .stagger > .reveal:nth-child(2),
+    .stagger > .reveal-fade:nth-child(2) { transition-delay: 0.10s; }
+    .stagger > .reveal:nth-child(3),
+    .stagger > .reveal-fade:nth-child(3) { transition-delay: 0.20s; }
+    .stagger > .reveal:nth-child(4),
+    .stagger > .reveal-fade:nth-child(4) { transition-delay: 0.30s; }
+
+    /* Grid cards gently fade up as they render */
+    .dino-card-enter {
+      animation: cardEnter 0.5s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+    }
+    @keyframes cardEnter {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .detail-section h4 {
+      font-family: 'Noto Serif SC', 'Noto Sans JP', serif;
+      letter-spacing: -0.01em;
+    }
+
+    .modern-shadow {
+      box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.2),
+                  0 4px 6px -4px rgb(0 0 0 / 0.2);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+      .dino-card:hover img {
+        transform: none;
+      }
+      /* Keep all animated-in content visible when motion is disabled */
+      .hero-reveal,
+      .reveal,
+      .reveal-fade {
+        opacity: 1 !important;
+        filter: none !important;
+        transform: none !important;
+      }
+    }
+
+    .dino-image-container {
+      overflow: hidden;
+      background: #0A0C0B;
+    }
+
+    /* Hero Video Optimization */
+    header video {
+      filter: contrast(1.05) saturate(0.95);
+      background-color: #0A0C0B;
+    }
+  </style>
+</head>
+<body class="bg-[#0A0C0B] text-[#EDE8DF] antialiased">
+  <!-- NAVBAR -->
+  <nav class="fixed top-0 left-0 right-0 z-50 museum-glass border-b border-[#2A302B]">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <!-- Logo -->
+        <div class="flex items-center gap-x-3">
+          <img src="assets/logo.png" alt="恐龙大百科" class="w-11 h-11 object-contain" />
+          <div>
+            <div class="font-display text-2xl tracking-[-0.03em] font-semibold" data-i18n="brand">恐龙大百科</div>
+            <div class="text-[10px] text-[#9A968E] -mt-1 tracking-[1.5px]">DINO ENCYCLOPEDIA</div>
+          </div>
+        </div>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-x-9 text-sm">
+          <a href="#explore" class="nav-link text-sm font-medium text-[#EDE8DF] hover:text-white" data-i18n="nav_species">探索物种</a>
+          <a href="#timeline" class="nav-link text-sm font-medium text-[#EDE8DF] hover:text-white" data-i18n="nav_timeline">地质年表</a>
+          <a href="#highlights" class="nav-link text-sm font-medium text-[#EDE8DF] hover:text-white" data-i18n="nav_highlights">特别推荐</a>
+        </div>
+
+        <!-- Actions -->
+        <div class="flex items-center gap-x-3">
+          <!-- Language Switcher -->
+          <div class="flex items-center rounded-full border border-[#2A302B] p-0.5 bg-[#0A0C0B]">
+            <button onclick="setLanguage('zh')" id="lang-zh"
+                    class="lang-btn active px-1.5 py-1 text-[10px] font-medium rounded-full transition-all">中文</button>
+            <button onclick="setLanguage('en')" id="lang-en"
+                    class="lang-btn px-1.5 py-1 text-[10px] font-medium rounded-full transition-all text-[#9A968E]">EN</button>
+            <button onclick="setLanguage('ja')" id="lang-ja"
+                    class="lang-btn px-1.5 py-1 text-[10px] font-medium rounded-full transition-all text-[#9A968E]">日</button>
+            <button onclick="setLanguage('pt')" id="lang-pt"
+                    class="lang-btn px-1.5 py-1 text-[10px] font-medium rounded-full transition-all text-[#9A968E]">PT</button>
+            <button onclick="setLanguage('ko')" id="lang-ko"
+                    class="lang-btn px-1.5 py-1 text-[10px] font-medium rounded-full transition-all text-[#9A968E]">韩</button>
+          </div>
+
+          <button onclick="showRandomDinosaur()" 
+                  class="hidden sm:flex items-center gap-x-2 px-5 h-10 rounded-full border border-[#2A302B] hover:border-[#4A6741] text-sm font-medium transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7-7 7M5 12h14" />
+            </svg>
+            <span data-i18n="btn_random">随机发现</span>
+          </button>
+          <button onclick="document.getElementById('explore').scrollIntoView({ behavior: 'smooth' })" 
+                  class="px-6 h-10 rounded-full bg-[#4A6741] hover:bg-[#5A7A51] text-white text-sm font-medium transition-colors flex items-center">
+            <span data-i18n="btn_explore">开始探索</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="relative min-h-[100dvh] flex items-center justify-center pt-20 overflow-hidden">
+    <!-- Video Background (decorative) -->
+    <video 
+      class="absolute inset-0 w-full h-full object-cover"
+      autoplay 
+      muted 
+      loop 
+      playsinline
+      preload="metadata"
+      poster="images/trex.jpg"
+      aria-hidden="true">
+      <source src="videos/hero.mp4" type="video/mp4">
+    </video>
+
+    <!-- Overlays -->
+    <div class="absolute inset-0 hero-gradient"></div>
+    <div class="absolute inset-0 subtle-grain"></div>
+    
+    <div class="hero-content relative max-w-5xl mx-auto px-6 text-center z-10">
+      <div class="hero-reveal inline-block mb-4 px-4 py-1 rounded-full border border-white/20 text-xs tracking-[3px] text-white/70" data-i18n="hero_tag">中生代 · 2.3 亿年</div>
+
+      <h1 class="hero-reveal font-display text-[92px] md:text-[120px] leading-[0.86] tracking-[-6.5px] font-semibold mb-10" data-i18n="brand">
+        恐龙大百科
+      </h1>
+      <p class="hero-reveal max-w-lg mx-auto text-2xl md:text-3xl tracking-[-0.6px] text-[#EDE8DF] mb-10" data-i18n="hero_subtitle">
+        以科学之眼，重现失落的巨兽世界
+      </p>
+
+      <div class="hero-reveal flex flex-col sm:flex-row items-center justify-center gap-4">
+        <button onclick="document.getElementById('explore').scrollIntoView({ behavior: 'smooth' })" 
+                class="group w-full sm:w-auto px-10 h-14 rounded-full bg-white text-[#0A0C0B] font-medium text-base flex items-center justify-center gap-x-3 hover:bg-[#EDE8DF] transition-all active:scale-[0.985]">
+          <span data-i18n="hero_cta_species">浏览全部物种</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7-7 7" />
+          </svg>
+        </button>
+        <button onclick="document.getElementById('timeline').scrollIntoView({ behavior: 'smooth' })" 
+                class="w-full sm:w-auto px-9 h-14 rounded-full border border-white/30 hover:bg-white/5 text-base font-medium transition-all flex items-center justify-center gap-x-2">
+          <span data-i18n="hero_cta_timeline">查看地质年表</span>
+        </button>
+      </div>
+      
+      <div class="hero-reveal mt-16 flex justify-center">
+        <div class="scroll-cue flex items-center gap-x-2 text-xs tracking-[2px] text-white/50">
+          <div class="w-px h-3 bg-white/30"></div>
+          <span data-i18n="scroll_hint">向下滚动探索</span>
+          <div class="w-px h-3 bg-white/30"></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- TRUST / STATS -->
+  <div class="border-b border-[#2A302B] bg-[#0A0C0B]">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 py-8">
+      <div id="stats-grid" class="grid grid-cols-2 md:grid-cols-4 gap-y-8 text-center">
+        <div>
+          <div class="stat-number stat-count text-5xl font-semibold tracking-tighter text-white" data-target="12">0</div>
+          <div class="text-[#9A968E] text-sm mt-1 tracking-wider" data-i18n="stat_species">精选标志性物种</div>
+        </div>
+        <div>
+          <div class="stat-number stat-count text-5xl font-semibold tracking-tighter text-white" data-target="3">0</div>
+          <div class="text-[#9A968E] text-sm mt-1 tracking-wider" data-i18n="stat_eras">地质时代完整覆盖</div>
+        </div>
+        <div>
+          <div class="stat-number stat-count text-5xl font-semibold tracking-tighter text-white" data-target="230">0</div>
+          <div class="text-[#9A968E] text-sm mt-1 tracking-wider" data-i18n="stat_span">百万年演化跨度</div>
+        </div>
+        <div>
+          <div class="stat-number stat-count text-5xl font-semibold tracking-tighter text-white" data-target="66">0</div>
+          <div class="text-[#9A968E] text-sm mt-1 tracking-wider" data-i18n="stat_extinction">百万年前大灭绝</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXPLORE SECTION -->
+  <section id="explore" class="max-w-7xl mx-auto px-6 lg:px-8 pt-20 pb-12">
+    <div class="reveal flex flex-col md:flex-row md:items-end md:justify-between gap-y-4 mb-9">
+      <div>
+        <div class="uppercase tracking-[3px] text-xs text-[#9A968E] mb-2">SPECIES ARCHIVE</div>
+        <h2 class="section-title text-6xl md:text-7xl tracking-[-2.8px] font-semibold" data-i18n="explore_title">探索物种</h2>
+      </div>
+      <p class="max-w-md text-[#9A968E] md:text-right text-[15px]" data-i18n="explore_subtitle">
+        点击任意卡片查看完整档案。使用筛选器快速定位你感兴趣的恐龙。
+      </p>
+    </div>
+
+    <!-- FILTERS -->
+    <div class="flex flex-col lg:flex-row gap-4 mb-8">
+      <!-- Search -->
+      <div class="relative flex-1 max-w-md">
+        <div class="absolute left-5 top-1/2 -translate-y-1/2 text-[#9A968E]">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.25" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+        </div>
+        <input id="search-input" type="text" placeholder="搜索恐龙名称（中文或拉丁名）..." data-i18n-placeholder="search_placeholder"
+               class="w-full bg-[#121513] border border-[#2A302B] focus:border-[#4A6741] h-12 pl-12 pr-5 rounded-2xl text-base placeholder:text-[#9A968E] outline-none">
+      </div>
+
+      <!-- Era Filters -->
+      <div class="flex flex-wrap gap-2 items-center">
+        <div class="text-xs uppercase tracking-widest text-[#9A968E] mr-1 hidden lg:block" data-i18n="filter_era">时代</div>
+        <button onclick="setEraFilter('all')" id="era-all"
+                class="filter-pill active px-5 h-10 rounded-full text-sm font-medium" data-i18n="filter_all">全部</button>
+        <button onclick="setEraFilter('triassic')" id="era-triassic"
+                class="filter-pill px-5 h-10 rounded-full text-sm font-medium" data-i18n="filter_triassic">三叠纪</button>
+        <button onclick="setEraFilter('jurassic')" id="era-jurassic"
+                class="filter-pill px-5 h-10 rounded-full text-sm font-medium" data-i18n="filter_jurassic">侏罗纪</button>
+        <button onclick="setEraFilter('cretaceous')" id="era-cretaceous"
+                class="filter-pill px-5 h-10 rounded-full text-sm font-medium" data-i18n="filter_cretaceous">白垩纪</button>
+      </div>
+
+      <!-- Diet Filters -->
+      <div class="flex flex-wrap gap-2 items-center lg:ml-4">
+        <div class="text-xs uppercase tracking-widest text-[#9A968E] mr-1 hidden lg:block" data-i18n="filter_diet">食性</div>
+        <button onclick="setDietFilter('all')" id="diet-all"
+                class="filter-pill active px-5 h-10 rounded-full text-sm font-medium" data-i18n="filter_all">全部</button>
+        <button onclick="setDietFilter('carnivore')" id="diet-carnivore"
+                class="filter-pill px-5 h-10 rounded-full text-sm font-medium flex items-center gap-x-1.5">
+          <span data-i18n="filter_carnivore">肉食性</span>
+        </button>
+        <button onclick="setDietFilter('herbivore')" id="diet-herbivore"
+                class="filter-pill px-5 h-10 rounded-full text-sm font-medium flex items-center gap-x-1.5">
+          <span data-i18n="filter_herbivore">植食性</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- DINOSAUR GRID -->
+    <div id="dino-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+      <!-- Populated by JavaScript -->
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section id="timeline" class="bg-[#121513] border-y border-[#2A302B] py-20">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="reveal max-w-2xl mb-12">
+        <div class="uppercase tracking-[3px] text-xs text-[#4A6741]">GEOLOGICAL TIMELINE</div>
+        <h2 class="section-title text-6xl tracking-[-2.5px] font-semibold mt-3" data-i18n="timeline_title">中生代时间轴</h2>
+        <p class="mt-4 text-[#9A968E] text-[15px]" data-i18n="timeline_intro">恐龙统治地球的2亿3千万年，分为三个主要时代。点击时代可筛选对应物种。</p>
+      </div>
+
+      <div class="stagger grid md:grid-cols-3 gap-5">
+        <!-- Triassic -->
+        <div onclick="filterByEraFromTimeline('triassic')" class="reveal-fade timeline-item group cursor-pointer bg-[#1A1F1C] border border-[#2A302B] rounded-3xl p-8 hover:border-[#4A6741]">
+          <div class="flex justify-between items-start">
+            <div>
+              <div class="text-[#4A6741] text-sm tracking-widest">252 — 201 MYA</div>
+              <div class="font-display text-4xl tracking-tight mt-2" data-i18n="timeline_triassic">三叠纪</div>
+            </div>
+            <div class="text-right">
+              <div class="text-xs px-3 py-1 rounded bg-white/5 text-[#9A968E]" data-i18n="timeline_early">早期</div>
+            </div>
+          </div>
+          <div class="mt-8 text-[#9A968E] text-[14.5px] leading-relaxed" data-i18n="timeline_triassic_desc">
+            恐龙首次出现。体型较小，以板龙为代表的早期长颈类开始演化。
+          </div>
+          <div class="mt-8 text-sm font-medium text-[#B38B5E] group-hover:text-[#C9A96E] flex items-center gap-1">
+            <span data-i18n="timeline_cta">筛选此时代物种</span>
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+
+        <!-- Jurassic -->
+        <div onclick="filterByEraFromTimeline('jurassic')" class="reveal-fade timeline-item group cursor-pointer bg-[#1A1F1C] border border-[#2A302B] rounded-3xl p-8 hover:border-[#4A6741]">
+          <div class="flex justify-between items-start">
+            <div>
+              <div class="text-[#4A6741] text-sm tracking-widest">201 — 145 MYA</div>
+              <div class="font-display text-4xl tracking-tight mt-2" data-i18n="timeline_jurassic">侏罗纪</div>
+            </div>
+            <div class="text-right">
+              <div class="text-xs px-3 py-1 rounded bg-white/5 text-[#9A968E]" data-i18n="timeline_peak">繁盛</div>
+            </div>
+          </div>
+          <div class="mt-8 text-[#9A968E] text-[14.5px] leading-relaxed" data-i18n="timeline_jurassic_desc">
+            恐龙进入黄金时代。巨型蜥脚类与剑龙类称霸，异特龙等掠食者出现。
+          </div>
+          <div class="mt-8 text-sm font-medium text-[#B38B5E] group-hover:text-[#C9A96E] flex items-center gap-1">
+            <span data-i18n="timeline_cta">筛选此时代物种</span>
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+
+        <!-- Cretaceous -->
+        <div onclick="filterByEraFromTimeline('cretaceous')" class="reveal-fade timeline-item group cursor-pointer bg-[#1A1F1C] border border-[#2A302B] rounded-3xl p-8 hover:border-[#4A6741]">
+          <div class="flex justify-between items-start">
+            <div>
+              <div class="text-[#4A6741] text-sm tracking-widest">145 — 66 MYA</div>
+              <div class="font-display text-4xl tracking-tight mt-2" data-i18n="timeline_cretaceous">白垩纪</div>
+            </div>
+            <div class="text-right">
+              <div class="text-xs px-3 py-1 rounded bg-white/5 text-[#9A968E]" data-i18n="timeline_late">巅峰</div>
+            </div>
+          </div>
+          <div class="mt-8 text-[#9A968E] text-[14.5px] leading-relaxed" data-i18n="timeline_cretaceous_desc">
+            霸王龙、棘龙、甲龙等顶级物种出现。66百万年前小行星撞击导致大灭绝。
+          </div>
+          <div class="mt-8 text-sm font-medium text-[#B38B5E] group-hover:text-[#C9A96E] flex items-center gap-1">
+            <span data-i18n="timeline_cta">筛选此时代物种</span>
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HIGHLIGHTS -->
+  <section id="highlights" class="max-w-7xl mx-auto px-6 lg:px-8 py-20">
+    <div class="reveal flex flex-col md:flex-row md:items-end justify-between mb-10 gap-y-3">
+      <div>
+        <div class="uppercase tracking-[3px] text-xs text-[#9A968E]">CURATED STORIES</div>
+        <h2 class="section-title text-6xl tracking-[-2.5px] font-semibold" data-i18n="highlights_title">特别推荐</h2>
+      </div>
+      <p class="text-[#9A968E]" data-i18n="highlights_intro">这些故事揭示了恐龙世界的惊人真相</p>
+    </div>
+
+    <div class="stagger grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div onclick="openModal(1)" class="reveal group bg-[#121513] border border-[#2A302B] rounded-3xl p-7 hover:border-[#B38B5E] cursor-pointer transition-colors">
+        <div class="text-[#B38B5E] text-xs tracking-widest">THE APEX</div>
+        <div class="font-display text-3xl tracking-tight mt-2 mb-3" data-i18n="highlight_apex_title">最强咬合力</div>
+        <p class="text-[#9A968E] text-[14.5px]" data-i18n="highlight_apex_desc">霸王龙的咬合力超过4吨，是目前已知陆地动物之最，可直接咬碎大型骨骼。</p>
+        <div class="mt-6 text-sm text-[#C9A96E] flex items-center gap-2 group-hover:gap-3 transition-all"><span data-i18n="highlight_link">了解</span>&nbsp;<span data-i18n="highlight_apex_name">霸王龙</span> →</div>
+      </div>
+      
+      <div onclick="openModal(2)" class="reveal group bg-[#121513] border border-[#2A302B] rounded-3xl p-7 hover:border-[#B38B5E] cursor-pointer transition-colors">
+        <div class="text-[#B38B5E] text-xs tracking-widest">THE GIANT</div>
+        <div class="font-display text-3xl tracking-tight mt-2 mb-3" data-i18n="highlight_giant_title">最长恐龙</div>
+        <p class="text-[#9A968E] text-[14.5px]" data-i18n="highlight_giant_desc">棘龙体长可达15米，是已知最长的肉食恐龙，拥有独特的帆状背结构与半水生习性。</p>
+        <div class="mt-6 text-sm text-[#C9A96E] flex items-center gap-2 group-hover:gap-3 transition-all"><span data-i18n="highlight_link">了解</span>&nbsp;<span data-i18n="highlight_giant_name">棘龙</span> →</div>
+      </div>
+
+      <div onclick="openModal(3)" class="reveal group bg-[#121513] border border-[#2A302B] rounded-3xl p-7 hover:border-[#B38B5E] cursor-pointer transition-colors">
+        <div class="text-[#B38B5E] text-xs tracking-widest">THE TALLEST</div>
+        <div class="font-display text-3xl tracking-tight mt-2 mb-3" data-i18n="highlight_tallest_title">最高陆地动物</div>
+        <p class="text-[#9A968E] text-[14.5px]" data-i18n="highlight_tallest_desc">腕龙前肢极长，头部可达13米高，是侏罗纪最著名的巨型蜥脚类恐龙之一。</p>
+        <div class="mt-6 text-sm text-[#C9A96E] flex items-center gap-2 group-hover:gap-3 transition-all"><span data-i18n="highlight_link">了解</span>&nbsp;<span data-i18n="highlight_tallest_name">腕龙</span> →</div>
+      </div>
+
+      <div onclick="openModal(12)" class="reveal group bg-[#121513] border border-[#2A302B] rounded-3xl p-7 hover:border-[#B38B5E] cursor-pointer transition-colors">
+        <div class="text-[#B38B5E] text-xs tracking-widest">THE MARINE</div>
+        <div class="font-display text-3xl tracking-tight mt-2 mb-3" data-i18n="highlight_marine_title">海中霸主</div>
+        <p class="text-[#9A968E] text-[14.5px]" data-i18n="highlight_marine_desc">沧龙并非严格意义上的恐龙，而是巨大的海生爬行动物，统治着白垩纪的海洋。</p>
+        <div class="mt-6 text-sm text-[#C9A96E] flex items-center gap-2 group-hover:gap-3 transition-all"><span data-i18n="highlight_link">了解</span>&nbsp;<span data-i18n="highlight_marine_name">沧龙</span> →</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-[#2A302B] bg-[#0A0C0B]">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 py-16">
+      <div class="reveal flex flex-col md:flex-row justify-between gap-y-10">
+        <div>
+          <div class="flex items-center gap-x-3 mb-4">
+            <img src="assets/logo.png" alt="" class="w-8 h-8 object-contain" />
+            <span class="font-display text-xl tracking-tight" data-i18n="brand">恐龙大百科</span>
+          </div>
+          <p class="text-[#9A968E] max-w-xs text-[14px]" data-i18n="footer_desc">一个关于时间与生命的现代档案。致敬所有为古生物学贡献的科学家。</p>
+        </div>
+
+        <div class="text-sm text-[#9A968E] space-y-2 md:text-right">
+          <div data-i18n="footer_credit_image">图片由 AI 辅助生成，参考科学复原与古生物艺术传统</div>
+          <div data-i18n="footer_credit_data">数据基于公开学术研究与博物馆资料</div>
+          <div class="pt-3 text-xs tracking-widest" data-i18n="footer_legal">© 2026 · 仅供教育与欣赏</div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- DETAIL MODAL -->
+  <div id="modal" onclick="if (event.target.id === 'modal') closeModal()" class="hidden fixed inset-0 z-[100] flex items-start justify-center bg-black/80 p-4 md:p-8 overflow-y-auto">
+    <div onclick="event.stopImmediatePropagation()" 
+         class="modal bg-[#121513] w-full max-w-5xl rounded-3xl overflow-hidden border border-[#2A302B] my-8 shadow-2xl">
+      
+      <!-- Modal Header Media (supports image or video) -->
+      <div id="modal-image-container" class="relative h-72 md:h-96 w-full overflow-hidden bg-black">
+        <!-- JS will inject either <img> or <video> here -->
+        <div id="modal-media-wrapper" class="absolute inset-0"></div>
+        
+        <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-[#121513]"></div>
+        
+        <!-- Close -->
+        <button onclick="closeModal()" 
+                class="absolute top-6 right-6 w-11 h-11 flex items-center justify-center rounded-full bg-black/50 hover:bg-black/70 text-white transition-colors backdrop-blur z-10">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6h12v12" />
+          </svg>
+        </button>
+      </div>
+
+      <div class="p-8 md:p-10 lg:p-12">
+        <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-y-2">
+          <div>
+            <div id="modal-name-cn" class="font-display text-6xl tracking-[-2.2px] font-semibold"></div>
+            <div id="modal-name-en" class="font-mono text-[#9A968E] text-xl mt-1 tracking-tight"></div>
+          </div>
+          <div id="modal-pills" class="flex gap-2 flex-wrap md:justify-end"></div>
+        </div>
+
+        <!-- Quick Facts -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-9">
+          <div class="fact-pill rounded-2xl px-5 py-4">
+            <div class="text-xs text-[#9A968E]" data-i18n="modal_period_label">地质时期</div>
+            <div id="modal-period" class="font-medium mt-1 text-lg"></div>
+          </div>
+          <div class="fact-pill rounded-2xl px-5 py-4">
+            <div class="text-xs text-[#9A968E]" data-i18n="modal_length_label">体长</div>
+            <div id="modal-length" class="font-medium mt-1 text-lg"></div>
+          </div>
+          <div class="fact-pill rounded-2xl px-5 py-4">
+            <div class="text-xs text-[#9A968E]" data-i18n="modal_weight_label">体重</div>
+            <div id="modal-weight" class="font-medium mt-1 text-lg"></div>
+          </div>
+          <div class="fact-pill rounded-2xl px-5 py-4">
+            <div class="text-xs text-[#9A968E]" data-i18n="modal_diet_label">食性</div>
+            <div id="modal-diet" class="font-medium mt-1 text-lg"></div>
+          </div>
+        </div>
+
+        <div class="mt-9 grid md:grid-cols-5 gap-x-12 gap-y-9">
+          <!-- Left content -->
+          <div class="md:col-span-3 space-y-9">
+            <div class="detail-section">
+              <h4 class="uppercase text-xs tracking-[2px] text-[#4A6741] mb-3" data-i18n="modal_habitat">栖息地与习性</h4>
+              <p id="modal-habitat" class="text-[15px] leading-relaxed text-[#D6D0C6]"></p>
+            </div>
+            
+            <div class="detail-section">
+              <h4 class="uppercase text-xs tracking-[2px] text-[#4A6741] mb-3" data-i18n="modal_discovery">发现历史</h4>
+              <p id="modal-discovery" class="text-[15px] leading-relaxed text-[#D6D0C6]"></p>
+            </div>
+          </div>
+
+          <!-- Right -->
+          <div class="md:col-span-2">
+            <div class="detail-section">
+              <h4 class="uppercase text-xs tracking-[2px] text-[#4A6741] mb-3" data-i18n="modal_features">显著特征</h4>
+              <p id="modal-features" class="text-[15px] leading-relaxed text-[#D6D0C6]"></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Long description -->
+        <div class="mt-9 pt-9 border-t border-[#2A302B]">
+          <h4 class="uppercase text-xs tracking-[2px] text-[#4A6741] mb-3" data-i18n="modal_archive">科学档案</h4>
+          <div id="modal-long-desc" class="text-[15.2px] leading-[1.72] text-[#D6D0C6] max-w-prose"></div>
+        </div>
+
+        <!-- Fun Facts -->
+        <div class="mt-9 pt-9 border-t border-[#2A302B]">
+          <h4 class="uppercase text-xs tracking-[2px] text-[#4A6741] mb-5" data-i18n="modal_facts">你可能不知道</h4>
+          <ul id="modal-facts" class="space-y-3 text-[15px]"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="data/dinosaurs.js"></script>
+  <script src="data/i18n.js"></script>
+  <script>
+    // Tailwind Configuration - Elegant Dark Biophilic Science Theme
+    function initTailwind() {
+      document.documentElement.style.setProperty('--accent', '#4A6741');
+      
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              'display': ['Noto Serif SC', 'Noto Sans JP', 'serif'],
+              'sans': ['Noto Sans JP', 'Noto Sans SC', 'system-ui', 'sans-serif']
+            }
+          }
+        }
+      };
+    }
+
+    // Data loaded from external files.
+    const dinosaurs = window.dinosaurs || [];
+
+
+    // State
+    let currentEraFilter = 'all';
+    let currentDietFilter = 'all';
+    let currentSearchTerm = '';
+    let currentLang = 'zh';
+
+    // UI copy loaded from external files.
+    const i18n = window.i18n || {};
+
+
+    function t(key) {
+      return (i18n[currentLang] && i18n[currentLang][key]) || i18n.zh[key] || key;
+    }
+
+    // Localize measurement units (numbers are language-independent, only the unit word changes)
+    function localizeUnits(value) {
+      if (typeof value !== 'string') return value;
+      if (currentLang === 'en' || currentLang === 'ja' || currentLang === 'pt' || currentLang === 'ko') {
+        return value
+          .replace(/米/g, 'm')
+          .replace(/吨/g, 't')
+          .replace(/公斤/g, 'kg');
+      }
+      return value;
+    }
+
+    // Initialize everything
+    function init() {
+      initTailwind();
+      renderDinosaurGrid(dinosaurs);
+      setupFilters();
+      setupSearch();
+      setupCountUp();
+      setupScrollReveal();
+
+      // Keyboard escape for modal
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          const modal = document.getElementById('modal');
+          if (!modal.classList.contains('hidden')) {
+            closeModal();
+          }
+        }
+      });
+    }
+
+    // Animate the stat numbers counting up when they scroll into view.
+    function setupCountUp() {
+      const grid = document.getElementById('stats-grid');
+      if (!grid) return;
+
+      const counters = grid.querySelectorAll('.stat-count');
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // Reduced motion or no IntersectionObserver: show final values immediately.
+      if (prefersReduced || !('IntersectionObserver' in window)) {
+        counters.forEach(el => { el.textContent = el.dataset.target; });
+        return;
+      }
+
+      const runCount = (el) => {
+        const target = parseInt(el.dataset.target, 10) || 0;
+        const duration = 1600; // ms
+        const start = performance.now();
+
+        const tick = (now) => {
+          const progress = Math.min((now - start) / duration, 1);
+          // easeOutExpo for a quick start that gently settles on the final number
+          const eased = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+          el.textContent = Math.round(eased * target);
+          if (progress < 1) requestAnimationFrame(tick);
+          else el.textContent = target;
+        };
+        requestAnimationFrame(tick);
+      };
+
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            runCount(entry.target);
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.6 });
+
+      counters.forEach(el => observer.observe(el));
+    }
+
+    // Reveal sections (headers, timeline & highlight cards, footer) as they scroll into view.
+    function setupScrollReveal() {
+      const els = document.querySelectorAll('.reveal, .reveal-fade');
+      if (!els.length) return;
+
+      // No IntersectionObserver: just show everything.
+      if (!('IntersectionObserver' in window)) {
+        els.forEach(el => el.classList.add('is-visible'));
+        return;
+      }
+
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          const el = entry.target;
+          el.classList.add('is-visible');
+          obs.unobserve(el);
+          // Once revealed, drop the classes so the reveal transition/delay
+          // doesn't linger on the element's own hover effects.
+          setTimeout(() => el.classList.remove('reveal', 'reveal-fade', 'is-visible'), 1100);
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+
+      els.forEach(el => observer.observe(el));
+    }
+
+    // Render the dinosaur grid
+    function renderDinosaurGrid(list) {
+      const grid = document.getElementById('dino-grid');
+      grid.innerHTML = '';
+
+      if (list.length === 0) {
+        grid.innerHTML = `
+          <div class="col-span-full py-16 text-center">
+            <p class="text-[#9A968E]">${t('no_results')}</p>
+          </div>
+        `;
+        return;
+      }
+
+      list.forEach((dino, i) => {
+        const card = document.createElement('div');
+        card.className = 'dino-card dino-card-enter group bg-[#121513] rounded-3xl overflow-hidden cursor-pointer flex flex-col';
+        // Capped stagger so re-renders (search/filter) stay snappy
+        card.style.animationDelay = `${Math.min(i * 0.04, 0.32)}s`;
+
+        const periodText = typeof dino.period === 'object' ? dino.period[currentLang] : dino.period;
+        const dietText = typeof dino.diet === 'object' ? dino.diet[currentLang] : dino.diet;
+        const shortDescText = typeof dino.short_desc === 'object' ? dino.short_desc[currentLang] : dino.short_desc;
+
+        // Title row: Chinese/Japanese/Portuguese/Korean show native name big + Latin genus tag.
+        // English shows the full binomial name.
+        const isZh = currentLang === 'zh';
+        const isJa = currentLang === 'ja';
+        const isPt = currentLang === 'pt';
+        const isKo = currentLang === 'ko';
+        const nativeName = isZh ? dino.name_cn : (isJa && dino.name_ja ? dino.name_ja : (isPt && dino.name_pt ? dino.name_pt : (isKo && dino.name_ko ? dino.name_ko : null)));
+        const titleHtml = nativeName
+          ? `<h3 class="font-display text-[27px] tracking-[-1.1px] leading-none font-semibold">${nativeName}</h3>
+             <span class="font-mono text-xs text-[#9A968E] whitespace-nowrap">${dino.name_en.split(' ')[0]}</span>`
+          : `<h3 class="font-display text-[21px] tracking-[-0.4px] leading-snug font-semibold break-words">${dino.name_en}</h3>`;
+
+        card.innerHTML = `
+          <div class="dino-image-container relative aspect-[16/10] bg-black">
+            <img src="${dino.image}" alt="${dino.name_cn} - ${dino.name_en}" class="absolute inset-0 w-full h-full object-cover">
+            <div class="absolute top-4 right-4 flex gap-2">
+              <span class="text-[10px] px-3 py-1 rounded-full bg-black/70 text-white/90 tracking-wider font-medium backdrop-blur">${periodText}</span>
+            </div>
+          </div>
+          <div class="p-6 flex flex-col flex-1">
+            <div class="flex-1">
+              <div class="flex items-baseline justify-between gap-3">
+                ${titleHtml}
+              </div>
+              
+              <div class="flex gap-2 mt-4">
+                <span class="inline-block text-xs px-3.5 py-1 rounded-full bg-[#1A1F1C] text-[#B38B5E]">${dietText}</span>
+                <span class="inline-block text-xs px-3.5 py-1 rounded-full bg-[#1A1F1C] text-[#9A968E]">${localizeUnits(dino.length)}</span>
+              </div>
+              
+              <p class="mt-5 text-[14.5px] leading-[1.55] text-[#C8C2B8] line-clamp-3">${shortDescText}</p>
+            </div>
+            
+            <div class="pt-5 mt-auto flex items-center justify-between text-sm text-[#4A6741] group-hover:text-[#C9A96E] transition-colors">
+              <span class="font-medium tracking-wide" data-i18n="card_more">${t('card_more')}</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7-7 7" />
+              </svg>
+            </div>
+          </div>
+        `;
+        
+        card.addEventListener('click', () => openModal(dino.id));
+        grid.appendChild(card);
+      });
+    }
+
+    // Setup filter buttons
+    function setupFilters() {
+      // Era filters already use inline onclick
+      // Diet filters already use inline onclick
+    }
+
+    function setEraFilter(era) {
+      currentEraFilter = era;
+      
+      // Update active states
+      document.querySelectorAll('[id^="era-"]').forEach(el => el.classList.remove('active'));
+      document.getElementById(`era-${era}`).classList.add('active');
+      
+      applyFilters();
+    }
+
+    function setDietFilter(diet) {
+      currentDietFilter = diet;   // now stores 'carnivore' or 'herbivore' (neutral)
+      
+      document.querySelectorAll('[id^="diet-"]').forEach(el => el.classList.remove('active'));
+      let targetId = 'diet-all';
+      if (diet === 'carnivore') targetId = 'diet-carnivore';
+      if (diet === 'herbivore') targetId = 'diet-herbivore';
+      document.getElementById(targetId).classList.add('active');
+      
+      applyFilters();
+    }
+
+    function filterByEraFromTimeline(era) {
+      // Scroll to explore
+      document.getElementById('explore').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      
+      // After scroll, apply filter
+      setTimeout(() => {
+        currentEraFilter = era;
+        
+        // Reset active pills
+        document.querySelectorAll('[id^="era-"]').forEach(el => el.classList.remove('active'));
+        document.getElementById(`era-${era}`).classList.add('active');
+        
+        // Reset diet to all for clarity
+        currentDietFilter = 'all';
+        document.querySelectorAll('[id^="diet-"]').forEach(el => el.classList.remove('active'));
+        document.getElementById('diet-all').classList.add('active');
+        
+        applyFilters();
+      }, 650);
+    }
+
+    // Apply all active filters + search
+    function applyFilters() {
+      const searchTerm = currentSearchTerm.toLowerCase().trim();
+      
+      const filtered = dinosaurs.filter(dino => {
+        const matchesEra = currentEraFilter === 'all' || dino.era === currentEraFilter;
+        
+        // Use neutral diet key for comparison
+        let dinoDietKey = 'herbivore';
+        if (typeof dino.diet === 'object') {
+          const dietVal = dino.diet[currentLang] || dino.diet.zh;
+          if (dietVal === '肉食性' || dietVal === 'Carnivore' || dietVal === '육식성' || dietVal === 'Carnívoro') {
+            dinoDietKey = 'carnivore';
+          }
+        } else if (dino.diet === '肉食性' || dino.diet === 'Carnivore') {
+          dinoDietKey = 'carnivore';
+        }
+        
+        const matchesDiet = currentDietFilter === 'all' || currentDietFilter === dinoDietKey;
+        
+        const matchesSearch = !searchTerm || 
+          dino.name_cn.toLowerCase().includes(searchTerm) || 
+          dino.name_en.toLowerCase().includes(searchTerm) ||
+          (dino.name_ja && dino.name_ja.toLowerCase().includes(searchTerm)) ||
+          (dino.name_pt && dino.name_pt.toLowerCase().includes(searchTerm)) ||
+          (dino.name_ko && dino.name_ko.toLowerCase().includes(searchTerm));
+        
+        return matchesEra && matchesDiet && matchesSearch;
+      });
+      
+      renderDinosaurGrid(filtered);
+    }
+
+    // Search input
+    function setupSearch() {
+      const input = document.getElementById('search-input');
+      
+      let debounceTimer;
+      input.addEventListener('input', (e) => {
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(() => {
+          currentSearchTerm = e.target.value;
+          applyFilters();
+        }, 140);
+      });
+    }
+
+    // Set modal media (video preferred, fallback to image)
+    function setModalMedia(dino) {
+      const container = document.getElementById('modal-image-container');
+      const wrapper = document.getElementById('modal-media-wrapper');
+
+      // Cleanup previous video
+      if (container._currentVideo) {
+        container._currentVideo.pause();
+        container._currentVideo = null;
+      }
+      wrapper.innerHTML = '';
+
+      if (dino.video) {
+        // Video version
+        const video = document.createElement('video');
+        video.src = dino.video;
+        video.className = 'absolute inset-0 w-full h-full object-cover';
+        video.autoplay = true;
+        video.muted = true;
+        video.loop = true;
+        video.playsInline = true;
+        video.setAttribute('aria-hidden', 'true');
+
+        wrapper.appendChild(video);
+        container._currentVideo = video;
+      } else {
+        // Image fallback
+        const img = document.createElement('img');
+        img.src = dino.image;
+        img.alt = `${dino.name_cn} - ${dino.name_en}`;
+        img.className = 'absolute inset-0 w-full h-full object-cover';
+
+        wrapper.appendChild(img);
+      }
+    }
+
+    // Open detail modal (language-aware)
+    function openModal(id) {
+      const dino = dinosaurs.find(d => d.id === id);
+      if (!dino) return;
+
+      const getText = (field) => (typeof dino[field] === 'object' ? dino[field][currentLang] : dino[field]);
+
+      // Populate media (video or image)
+      setModalMedia(dino);
+      
+      document.getElementById('modal-name-cn').textContent = currentLang === 'zh' ? dino.name_cn : (currentLang === 'ja' && dino.name_ja ? dino.name_ja : (currentLang === 'pt' && dino.name_pt ? dino.name_pt : (currentLang === 'ko' && dino.name_ko ? dino.name_ko : dino.name_en)));
+      document.getElementById('modal-name-en').textContent = dino.name_en;
+      
+      document.getElementById('modal-period').textContent = getText('period');
+      document.getElementById('modal-length').textContent = localizeUnits(dino.length);
+      document.getElementById('modal-weight').textContent = localizeUnits(dino.weight);
+      document.getElementById('modal-diet').textContent = getText('diet');
+      
+      document.getElementById('modal-habitat').textContent = getText('habitat');
+      document.getElementById('modal-discovery').textContent = getText('discovery');
+      document.getElementById('modal-features').textContent = getText('features');
+      document.getElementById('modal-long-desc').textContent = getText('long_desc');
+
+      // Pills in header
+      const eraKey = dino.era === 'triassic' ? 'timeline_triassic' 
+                   : dino.era === 'jurassic' ? 'timeline_jurassic' 
+                   : 'timeline_cretaceous';
+      const eraLabel = t(eraKey);
+      
+      const pillsContainer = document.getElementById('modal-pills');
+      pillsContainer.innerHTML = `
+        <span class="px-4 py-1 text-sm rounded-full bg-[#1A1F1C] text-[#B38B5E]">${getText('diet')}</span>
+        <span class="px-4 py-1 text-sm rounded-full bg-[#1A1F1C] text-[#9A968E]">${eraLabel}</span>
+      `;
+
+      // Fun facts list
+      const factsList = document.getElementById('modal-facts');
+      const facts = typeof dino.fun_facts === 'object' ? dino.fun_facts[currentLang] : dino.fun_facts;
+      factsList.innerHTML = facts.map(fact => `
+        <li class="flex gap-4 items-start">
+          <span class="mt-2 block w-1 h-1 rounded-full bg-[#4A6741] flex-shrink-0"></span>
+          <span class="text-[#D6D0C6]">${fact}</span>
+        </li>
+      `).join('');
+
+      // Modal headers are now updated automatically via data-i18n + updateStaticText() on language change.
+      // No manual querySelector updates needed here.
+
+      // Show modal
+      const modal = document.getElementById('modal');
+      modal.setAttribute('data-current-id', id);
+      modal.classList.remove('hidden', 'is-closing');
+      modal.classList.add('flex');
+      // Next frame: trigger the backdrop fade + panel entrance
+      requestAnimationFrame(() => modal.classList.add('is-open'));
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('modal');
+      const container = document.getElementById('modal-image-container');
+
+      // Pause and cleanup any video
+      if (container._currentVideo) {
+        container._currentVideo.pause();
+        container._currentVideo = null;
+      }
+
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // Play the exit animation, then hide once it finishes
+      modal.classList.remove('is-open');
+      modal.classList.add('is-closing');
+      document.body.style.overflow = '';
+
+      const finishClose = () => {
+        modal.classList.remove('flex', 'is-closing');
+        modal.classList.add('hidden');
+      };
+
+      if (prefersReduced) {
+        finishClose();
+      } else {
+        setTimeout(finishClose, 300);
+      }
+    }
+
+    // Random dinosaur feature
+    function showRandomDinosaur() {
+      const randomIndex = Math.floor(Math.random() * dinosaurs.length);
+      const randomDino = dinosaurs[randomIndex];
+      
+      // If on mobile or filters active, scroll first
+      const exploreSection = document.getElementById('explore');
+      const rect = exploreSection.getBoundingClientRect();
+      
+      if (rect.top < 0 || rect.bottom > window.innerHeight) {
+        exploreSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        setTimeout(() => {
+          openModal(randomDino.id);
+        }, 620);
+      } else {
+        openModal(randomDino.id);
+      }
+    }
+
+    // Update all elements with data-i18n attributes
+    function updateStaticText() {
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (key && t(key)) {
+          el.textContent = t(key);
+        }
+      });
+
+      // Update document title and meta description
+      document.title = t('doc_title');
+      const metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) metaDesc.setAttribute('content', t('doc_desc'));
+
+      // Update the search placeholder (uses data-i18n-placeholder, not handled above)
+      const searchInput = document.getElementById('search-input');
+      if (searchInput) searchInput.placeholder = t('search_placeholder');
+
+      // Update language button active states
+      document.getElementById('lang-zh').classList.toggle('active', currentLang === 'zh');
+      document.getElementById('lang-zh').classList.toggle('text-[#9A968E]', currentLang !== 'zh');
+      document.getElementById('lang-en').classList.toggle('active', currentLang === 'en');
+      document.getElementById('lang-en').classList.toggle('text-[#9A968E]', currentLang !== 'en');
+      document.getElementById('lang-ja').classList.toggle('active', currentLang === 'ja');
+      document.getElementById('lang-ja').classList.toggle('text-[#9A968E]', currentLang !== 'ja');
+      document.getElementById('lang-pt').classList.toggle('active', currentLang === 'pt');
+      document.getElementById('lang-pt').classList.toggle('text-[#9A968E]', currentLang !== 'pt');
+      document.getElementById('lang-ko').classList.toggle('active', currentLang === 'ko');
+      document.getElementById('lang-ko').classList.toggle('text-[#9A968E]', currentLang !== 'ko');
+    }
+
+    // Main language switcher
+    function setLanguage(lang) {
+      if (currentLang === lang) return;
+      currentLang = lang;
+      localStorage.setItem('dinoLang', lang);
+
+      // Update document language
+      document.documentElement.lang = lang === 'zh' ? 'zh-CN' : (lang === 'ja' ? 'ja' : (lang === 'pt' ? 'pt' : (lang === 'ko' ? 'ko' : 'en')));
+
+      // Update static text
+      updateStaticText();
+
+      // Re-render grid with new language
+      applyFilters();
+
+      // If modal is open, re-render it in the new language (preserving scroll)
+      const modal = document.getElementById('modal');
+      if (modal && !modal.classList.contains('hidden')) {
+        const currentId = parseInt(modal.getAttribute('data-current-id') || '1', 10);
+        openModal(currentId);
+      }
+    }
+
+    // Bonus: allow clicking logo to reset filters
+    function setupLogoReset() {
+      const logo = document.querySelector('nav .flex.items-center');
+      if (logo) {
+        logo.style.cursor = 'pointer';
+        logo.addEventListener('click', () => {
+          // Reset everything
+          currentEraFilter = 'all';
+          currentDietFilter = 'all';
+          currentSearchTerm = '';
+          
+          document.getElementById('search-input').value = '';
+          
+          document.querySelectorAll('[id^="era-"]').forEach(el => el.classList.remove('active'));
+          document.getElementById('era-all').classList.add('active');
+          
+          document.querySelectorAll('[id^="diet-"]').forEach(el => el.classList.remove('active'));
+          document.getElementById('diet-all').classList.add('active');
+          
+          renderDinosaurGrid(dinosaurs);
+        });
+      }
+    }
+
+    // Boot application
+    function bootstrap() {
+      // Load saved language before rendering, so the grid renders in the right language
+      const savedLang = localStorage.getItem('dinoLang');
+      if (savedLang === 'en' || savedLang === 'zh' || savedLang === 'ja' || savedLang === 'pt' || savedLang === 'ko') {
+        currentLang = savedLang;
+      }
+      document.documentElement.lang = currentLang === 'zh' ? 'zh-CN' : (currentLang === 'ja' ? 'ja' : (currentLang === 'pt' ? 'pt' : (currentLang === 'ko' ? 'ko' : 'en')));
+
+      init();
+      setupLogoReset();
+
+      // Initial active states
+      document.getElementById('era-all').classList.add('active');
+      document.getElementById('diet-all').classList.add('active');
+
+      // Apply initial language to all static text + language button states
+      updateStaticText();
+
+      // Gentle welcome hint on desktop only (no emoji)
+      if (window.innerWidth > 1024) {
+        setTimeout(() => {
+          const grid = document.getElementById('dino-grid');
+          if (grid && !grid.querySelector('.dino-card:hover')) {
+            // Subtle interaction hint already handled by beautiful design
+          }
+        }, 4200);
+      }
+    }
+
+    // Start
+    bootstrap();
+  </script>
+</body>
+</html>
